@@ -1,7 +1,7 @@
 import $Store from '../Store.js'
 class MushroomsService {
 hitShroom(){
-  return $Store.po
+  return $Store.smooshPower
 }
 removeShroom(){
 
