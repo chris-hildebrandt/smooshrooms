@@ -1,14 +1,21 @@
 <template>
 <div>
-  <h1>Hello from the Home Page!</h1>
+  <BasicShroom v-for="b in basicShrooms" :key="b.id"/>
 </div>
 </template>
 
 <script>
+import BasicShroom from "@/components/BasicShroom.vue";
+import { computed } from "@vue/reactivity";
+import $Store from '../Store.js'
 export default {
-setup(){
-return{}
-}
+    setup() {
+      return {
+          basicShrooms: computed(()=> $Store.state.basicShroom)
+
+        };
+    },
+    components: { BasicShroom }
 }
 </script>
 
