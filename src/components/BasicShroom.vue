@@ -14,7 +14,7 @@ return{
   toast,
   hitShroom(){
     try {
-      toString.success('you hit it!', {timeout: 2000})
+      toast.success('you hit it!', {timeout: 2000})
       mushroomsService.hitShroom()
       playerService.increaseScore(1)
     } catch (error) {
