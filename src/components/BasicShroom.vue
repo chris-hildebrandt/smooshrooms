@@ -5,7 +5,7 @@
 <script>
 import { useToast } from "vue-toastification"
 import {mushroomsService} from "../service/mushroomsService.js"
-import {playerService} from "../service/mushroomService.js"
+import {playerService} from "../service/playerService.js"
 
 export default {
 setup(){
