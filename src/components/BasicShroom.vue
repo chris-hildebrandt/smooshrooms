@@ -1,9 +1,5 @@
 <template>
-  <marquee class="mq1" behavior="alternate" direction="up">
-    <marquee class="mq2" behavior="alternate" direction="right">
-      <button class="btn btn-primary" @click="hitShroom(bShroom.id)">hit me</button>
-    </marquee>
-  </marquee>
+<button class="btn btn-primary" @click="hitShroom(bShroom.id)">hit me</button>
 </template>
 
 <script>

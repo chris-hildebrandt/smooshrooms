@@ -1,7 +1,13 @@
 <template>
-  <button v-if="basicShrooms.length <= 0" class="btn btn-info" @click="spawnShrooms(stage)">START GAME</button>
-  <div v-for="b in basicShrooms" :key="b.id">
-    <BasicShroom :bShroom="b" />
+  <div class="container-fluid stage">
+    <button v-if="basicShrooms.length <= 0" class="btn btn-info" @click="spawnShrooms(stage)">START GAME</button>
+    <marquee class="mq1" behavior="alternate" direction="up">
+      <marquee class="mq2" behavior="alternate" direction="right">
+        <div v-for="b in basicShrooms" :key="b.id">
+          <BasicShroom :bShroom="b" />
+        </div>
+      </marquee>
+    </marquee>
   </div>
 </template>
 
@@ -26,5 +32,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.stage marquee{
+  min-height: 25vh;
+  display: block;
+  width: 100%;
+}
+.stage marquee marquee {
+  height: 100%;
+  width: 100%;
+}
 </style>
