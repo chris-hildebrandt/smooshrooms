@@ -18,9 +18,9 @@ hitShroom(id){
 removeShroom(){
 
 }
-spawnShrooms(stage){
+spawnShrooms(){
   const mushroom = {}
-  switch(stage){
+  switch($Store.state.stage){
     case 1:
     mushroom.id = generateId()
     mushroom.name = "BasicShroom"

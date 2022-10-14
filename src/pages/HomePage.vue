@@ -1,13 +1,9 @@
 <template>
   <div class="container-fluid stage">
-    <button v-if="basicShrooms.length <= 0" class="btn btn-info" @click="spawnShrooms(stage)">START GAME</button>
-    <marquee class="mq1" behavior="alternate" direction="up">
-      <marquee class="mq2" behavior="alternate" direction="right">
-        <div v-for="b in basicShrooms" :key="b.id">
-          <BasicShroom :bShroom="b" />
-        </div>
-      </marquee>
-    </marquee>
+    <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
+    <div v-for="b in basicShrooms" :key="b.id">
+      <BasicShroom :bShroom="b" />
+    </div>
   </div>
 </template>
 
@@ -16,13 +12,21 @@ import { mushroomsService } from "../service/mushroomsService.js"
 import BasicShroom from "@/components/BasicShroom.vue";
 import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
+import { playerService } from "@/service/playerService.js";
+import { onMounted } from "vue";
 export default {
   setup() {
+    onMounted(()=> {
+    })
     return {
       basicShrooms: computed(() => $Store.state.basicShrooms),
       stage: computed(() => $Store.state.stage),
-      spawnShrooms(stage) {
-        setInterval(mushroomsService.spawnShrooms(stage), 2000)
+      spawnInterval: '',
+      startGame(){
+        this.spawnInterval = setInterval(()=> {
+          mushroomsService.spawnShrooms()
+        }, 2000)
+        playerService.increaseStage()
       }
 
     };
@@ -32,13 +36,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.stage marquee{
-  min-height: 25vh;
-  display: block;
-  width: 100%;
-}
-.stage marquee marquee {
-  height: 100%;
-  width: 100%;
-}
+
 </style>
