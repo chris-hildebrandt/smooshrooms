@@ -1,7 +1,8 @@
+
 import $Store from '../Store.js'
 class PlayerService{
   increaseScore(num){
-    $Store.score += num
+    $Store.state.score += num
   }
 }
-export const playerService = new PlayerService
+export const playerService = new PlayerService()
