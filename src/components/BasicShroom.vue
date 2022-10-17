@@ -1,9 +1,7 @@
 <template>
-    <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'">
-      <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'">
-        <button class="btn btn-primary m-0" @click="hitShroom(bShroom.id)">hit me</button>
-      </marquee>
-    </marquee>
+  <button title="basic shroom" class="btn btn-primary m-0" @click="hitShroom(bShroom.id)">
+    <img src="src\assets\button-mushroom-pixel-art-vector-260nw-1075017158.webp" alt="Basic-Shroom">
+  </button>
 </template>
 
 <script>
