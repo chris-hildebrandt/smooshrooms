@@ -4,11 +4,11 @@ import Store from "vuex"
 import App from './App.vue'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
-import Vue3Marquee from 'vue3-marquee'
+// import Vue3Marquee from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
 
 const options = {
     // You can set your default options here
 };
 
-createApp(App).use(Store).use(router).use(Toast, options).use(Vue3Marquee).mount('#app')
+createApp(App).use(Store).use(router).use(Toast, options).mount('#app')

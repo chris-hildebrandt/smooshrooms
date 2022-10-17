@@ -25,7 +25,7 @@ export default {
       startGame(){
         this.spawnInterval = setInterval(()=> {
           mushroomsService.spawnShrooms()
-        }, 2000)
+        }, Math.random()*2000)
         playerService.increaseStage()
       }
 

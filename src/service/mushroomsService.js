@@ -6,7 +6,7 @@ class MushroomsService {
 getShroomById(id){
   const mushroom = $Store.state.basicShrooms.find((m)=>m.id == id)
   if (!mushroom){
-    throw new console.error("no mushroom found by that id");
+    throw new console.log("no mushroom found by that id");
   } return mushroom
 }
 hitShroom(id){
@@ -17,8 +17,9 @@ hitShroom(id){
     playerService.increaseScore(1)
   }
 }
-removeShroom(){
-
+despawn(id){
+  const mushroom = this.getShroomById(id)
+  $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
 }
 spawnShrooms(){
   const mushroom = {}
