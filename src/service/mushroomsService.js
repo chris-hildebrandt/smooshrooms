@@ -11,9 +11,11 @@ getShroomById(id){
 }
 hitShroom(id){
   const mushroom = this.getShroomById(id)
-  mushroom.hitPoints -= 
-
-  playerService.increaseScore(1)
+  mushroom.hitPoints -= $Store.state.smooshPower
+  if(mushroom.hitPoints <= 0){
+    $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
+    playerService.increaseScore(1)
+  }
 }
 removeShroom(){
 
