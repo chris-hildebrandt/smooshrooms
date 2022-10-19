@@ -1,5 +1,5 @@
 <template>
-    <img title="basic shroom" class="btn btn-primary m-0" @click="hitShroom(bShroom.id)" src="https://image.shutterstock.com/image-vector/button-mushroom-pixel-art-vector-260nw-1075017158.jpg" alt="Basic-Shroom">
+    <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
 </template>
 
 <script>
@@ -32,4 +32,8 @@ return{
 </script>
 
 <style lang="scss" scoped>
+.shroom{
+  height: 100px;
+  width: auto;
+}
 </style>

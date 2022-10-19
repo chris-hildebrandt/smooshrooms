@@ -6,7 +6,7 @@ class MushroomsService {
 getShroomById(id){
   const mushroom = $Store.state.basicShrooms.find((m)=>m.id == id)
   if (!mushroom){
-    throw new console.log("no mushroom found by that id");
+    console.log("no mushroom found by that id");
   } return mushroom
 }
 hitShroom(id){
@@ -28,6 +28,7 @@ spawnShrooms(){
     mushroom.id = generateId()
     mushroom.name = "BasicShroom"
     mushroom.hitPoints = 1
+    mushroom.location = Math.random()*10
     $Store.state.basicShrooms.push(mushroom)
     break;
   }
