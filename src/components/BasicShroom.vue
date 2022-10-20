@@ -14,7 +14,7 @@ setup(props){
   onMounted(()=> {
     setInterval(()=> {
           mushroomsService.despawn(props.bShroom.id)
-        }, Math.random()*1000)
+        }, Math.random()*2000)
     })
 return{
   toast,

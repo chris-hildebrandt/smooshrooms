@@ -5,7 +5,7 @@ import App from './App.vue'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 // import Vue3Marquee from 'vue3-marquee'
-import 'vue3-marquee/dist/style.css'
+// import 'vue3-marquee/dist/style.css'
 
 const options = {
     // You can set your default options here

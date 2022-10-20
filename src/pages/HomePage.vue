@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid stage">
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+        <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
         <div v-for="b in basicShrooms" :key="b.id">
           <BasicShroom :bShroom="b" />
         </div>
