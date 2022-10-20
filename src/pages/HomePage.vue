@@ -1,83 +1,11 @@
 <template>
   <div class="container-fluid stage">
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
-    <!-- first row -->
-    <div class="row">
-      <div class="col-2 offset-2">
         <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+        <div v-for="b in basicShrooms" :key="b.id">
+          <BasicShroom :bShroom="b" />
+        </div>
       </div>
-      <div v-for="b in basicShrooms => b.location == 0" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-      <div class="col-2 offset-3">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 1" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-    </div>
-    <!-- second row -->
-    <div class="row">
-      <div class="col-2 offset-3">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 2" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-      <div class="col-2 offset-3">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 3" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-    </div>
-    <!-- third row -->
-    <div class="row">
-      <div class="col-2 offset-4">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 4" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-      <div class="col-2">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 5" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-      <div class="col-2 offset-1">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 6" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-    </div>
-    <!-- fourth row -->
-    <div class="row">
-
-      <div class="col-2 offset-2">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 7" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-      <div class="col-2 offset-2">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 8" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-    </div>
-    <!-- fifth row -->
-    <div class="row">
-      <div class="col-2 offset-2">
-        <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-      </div>
-      <div v-for="b in basicShrooms => b.location == 9" :key="b.id">
-        <BasicShroom :bShroom="b" />
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -114,9 +42,55 @@ export default {
   background-image: url(https://img.itch.zone/aW1hZ2UvNDU5NTAzLzIzMzc2NzYuanBn/original/kpTywm.jpg);
   background-size: cover;
   height: 100vh;
+  position: relative;
+}
+.row{
+  height: 100px;
 }
 .shroom{
   height: 100px;
   width: auto;
+  position: absolute;
+.position0{
+  top: 6vh;
+  left: 30vw;
 }
+.position1{
+  top: 40vh;
+  left: 33vw;
+}
+.position2{
+  top: 50vh;
+  left: 22vw;
+}
+.position3{
+  top: 63vh;
+  left: 18vw;
+}
+.position4{
+  top: 75vh;
+  left: 30vw;
+}
+.position5{
+  top: 77vh;
+  left: 50vw;
+}
+.position6{
+  top: 47vh;
+  left: 53vw;
+}
+.position7{
+  top: 32vh;
+  left: 65vw;
+}
+.position8{
+  top: 20vh;
+  left: 82vw;
+}
+.position9{
+  top: 55vh;
+  left: 78vw;
+}
+}
+
 </style>

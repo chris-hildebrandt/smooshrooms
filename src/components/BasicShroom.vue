@@ -1,5 +1,5 @@
 <template>
-    <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+    <img title="basic shroom" class="shroom btn m-0 position{{bShroom.location}}" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
 </template>
 
 <script>
