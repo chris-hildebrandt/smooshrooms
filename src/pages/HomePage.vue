@@ -94,6 +94,20 @@ export default {
 .text-shadow{
   text-shadow: 1px 1px 4px black;
 }
+// font-family: 'Bangers', cursive;
+// font-family: 'Berkshire Swash', cursive;
+// font-family: 'Black And White Picture', sans-serif;
+// font-family: 'Carter One', cursive;
+// font-family: 'Eater', cursive;
+// font-family: 'Faster One', cursive;
+// font-family: 'Freckle Face', cursive;
+// font-family: 'Griffy', cursive;
+// font-family: 'Henny Penny', cursive;
+// font-family: 'Irish Grover', cursive;
+// font-family: 'Luckiest Guy', cursive;
+// font-family: 'Modak', cursive;
+// font-family: 'Nanum Brush Script', cursive;
+// font-family: 'Ranchers', cursive;
 
 
 </style>
