@@ -28,7 +28,7 @@ spawnShrooms(){
     mushroom.id = generateId()
     mushroom.name = "BasicShroom"
     mushroom.hitPoints = 1
-    mushroom.location = Math.random()*10
+    mushroom.location = Math.floor(Math.random()*10)
     $Store.state.basicShrooms.push(mushroom)
     break;
   }

@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid stage">
+    <h1 class="text-light text-shadow">Smooshrooms!</h1>
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
         <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
         <div v-for="b in basicShrooms" :key="b.id">
@@ -26,7 +27,7 @@ export default {
       startGame(){
         this.spawnInterval = setInterval(()=> {
           mushroomsService.spawnShrooms()
-        }, Math.random()*3000)
+        }, Math.random()*5000)
         playerService.increaseStage()
       }
 
@@ -48,9 +49,8 @@ export default {
   height: 100px;
 }
 .shroom{
-  height: 100px;
-  width: auto;
   position: absolute;
+}
 .position0{
   top: 6vh;
   left: 30vw;
@@ -91,6 +91,9 @@ export default {
   top: 55vh;
   left: 78vw;
 }
+.text-shadow{
+  text-shadow: 1px 1px 4px black;
 }
+
 
 </style>

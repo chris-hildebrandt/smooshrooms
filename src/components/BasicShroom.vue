@@ -1,5 +1,5 @@
 <template>
-    <img title="basic shroom" class="shroom btn m-0 position{{bShroom.location}}" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+    <img title="basic shroom" draggable="false" class="shroom btn m-0" :class="'position' + bShroom.location" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
 </template>
 
 <script>
@@ -14,7 +14,7 @@ setup(props){
   onMounted(()=> {
     setInterval(()=> {
           mushroomsService.despawn(props.bShroom.id)
-        }, Math.random()*2000)
+        }, Math.random()*3000)
     })
 return{
   toast,
