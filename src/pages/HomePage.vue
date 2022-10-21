@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid stage">
     <h1 class="text-light text-shadow pt-3">Smooshrooms!</h1>
-    <div class="score text-light text-shadow" title="player score">
-{{}}
+    <div class="score text-light text-shadow" title="player score">Score: 
+{{score}}
     </div>
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
         <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
@@ -108,6 +108,8 @@ h1{
   position: absolute;
   top: 10px;
   right: 50px;
+  font-family: 'Irish Grover', cursive;
+  font-size: xx-large;
 }
 // font-family: 'Bangers', cursive;
 // font-family: 'Berkshire Swash', cursive;
