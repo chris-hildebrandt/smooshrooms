@@ -20,7 +20,7 @@ return{
   toast,
   hitShroom(id){
     try {
-      toast.success('you hit it!', {timeout: 1000})
+      
       mushroomsService.hitShroom(id)
     } catch (error) {
       toast.danger("hitting shroom", error)
