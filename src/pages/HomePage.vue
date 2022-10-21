@@ -1,6 +1,9 @@
 <template>
   <div class="container-fluid stage">
-    <h1 class="text-light text-shadow">Smooshrooms!</h1>
+    <h1 class="text-light text-shadow pt-3">Smooshrooms!</h1>
+    <div class="score text-light text-shadow" title="player score">
+{{}}
+    </div>
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
         <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
         <div v-for="b in basicShrooms" :key="b.id">
@@ -21,6 +24,7 @@ export default {
     onMounted(()=> {
     })
     return {
+      score: computed(()=> $Store.state.score),
       basicShrooms: computed(() => $Store.state.basicShrooms),
       stage: computed(() => $Store.state.stage),
       spawnInterval: '',
@@ -93,6 +97,17 @@ export default {
 }
 .text-shadow{
   text-shadow: 1px 1px 4px black;
+}
+h1{
+  font-family: 'Henny Penny', cursive;
+  user-select: none;
+}
+.score{
+  font-weight: 700;
+  user-select: none;
+  position: absolute;
+  top: 10px;
+  right: 50px;
 }
 // font-family: 'Bangers', cursive;
 // font-family: 'Berkshire Swash', cursive;
