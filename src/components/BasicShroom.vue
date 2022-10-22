@@ -1,5 +1,8 @@
 <template>
-    <img title="basic shroom" draggable="false" class="shroom btn m-0" :class="'position' + bShroom.location" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+  <div draggable="false" class="small-box shroom" :class="'position' + bShroom.location" @click="hitShroom(bShroom.id)" >
+    <img class="small-box btn m-0" draggable="false" title="basic shroom" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+    
+  </div>
 </template>
 
 <script>
@@ -20,7 +23,7 @@ return{
   toast,
   hitShroom(id){
     try {
-      
+
       mushroomsService.hitShroom(id)
     } catch (error) {
       toast.danger("hitting shroom", error)
@@ -32,7 +35,7 @@ return{
 </script>
 
 <style lang="scss" scoped>
-.shroom{
+.small-box{
   height: 100px;
   width: auto;
 }
