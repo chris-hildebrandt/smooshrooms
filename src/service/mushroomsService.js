@@ -14,7 +14,7 @@ hitShroom(id){
   mushroom
   mushroom.hitPoints -= $Store.state.smooshPower
   if(mushroom.hitPoints <= 0){
-    $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
+    setTimeout(()=>{this.despawn(id)}, 700)
     playerService.increaseScore(1)
   }
 }
