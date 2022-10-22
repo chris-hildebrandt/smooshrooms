@@ -96,10 +96,12 @@ export default {
   left: 78vw;
 }
 .text-shadow{
-  text-shadow: 1px 1px 4px black;
+  text-shadow: 1px 1px 6px black;
 }
 h1{
   font-family: 'Henny Penny', cursive;
+  // font-family: 'Irish Grover', cursive;
+  font-size: 70px;
   user-select: none;
 }
 .score{
