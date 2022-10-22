@@ -49,9 +49,6 @@ export default {
   height: 100vh;
   position: relative;
 }
-.row{
-  height: 100px;
-}
 .shroom{
   position: absolute;
 }
