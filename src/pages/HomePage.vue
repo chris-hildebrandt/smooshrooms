@@ -38,10 +38,10 @@ export default {
       dinnerDecider(){
         const dinner = Math.random()*10
         if (dinner > 6){
-          return 'fish tacos!'
+          console.log('fish tacos!')
         } else if (dinner > 3){
-          return 'meatballs!'
-        } else { return 'teriyaki chicken' }
+          console.log('meatballs!')
+        } else { console.log('teriyaki chicken') }
       }
     };
   },
