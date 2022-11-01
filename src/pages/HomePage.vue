@@ -4,7 +4,6 @@
     <div class="score text-light text-shadow" title="player score">Score: 
 {{score}}
     </div>
-    <button class="btn btn-success" @click="dinnerDecider()">what's for dinner?</button>
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
         <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
         <div v-for="b in basicShrooms" :key="b.id">
@@ -35,14 +34,6 @@ export default {
         }, Math.random()*5000)
         playerService.increaseStage()
       },
-      dinnerDecider(){
-        const dinner = Math.random()*10
-        if (dinner > 6){
-          console.log('fish tacos!')
-        } else if (dinner > 3){
-          console.log('meatballs!')
-        } else { console.log('teriyaki chicken') }
-      }
     };
   },
   components: { BasicShroom }
