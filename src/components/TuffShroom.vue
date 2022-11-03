@@ -18,7 +18,7 @@
         health -= mushroomsService.hitShroom()
         if (health <= 0){
           mushroomsService.removeShroom()
-          playerService.increaseScore(1)
+          playerService.increaseScore(2)
           toast.success("you got it!", {timeout: 2000})
         }
       } catch (error) {
