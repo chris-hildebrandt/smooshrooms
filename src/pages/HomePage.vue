@@ -65,19 +65,19 @@ export default {
   width: 100%;
 }
 .stage0{
-  background-image: url(../assets/2fae6db4ec5ee1919d54329a7c33b14c.png);
+  background-image: url(../assets/backgrounds/2fae6db4ec5ee1919d54329a7c33b14c.png);
   background-size: cover;
   height: 100vh;
   position: relative;
 }
 .stage1{
-  background-image: url(https://img.itch.zone/aW1hZ2UvNDU5NTAzLzIzMzc2NzYuanBn/original/kpTywm.jpg);
+  background-image: url(../assets/backgrounds/kpTywm.jpg);
   background-size: cover;
   height: 100vh;
   position: relative;
 }
 .stage2{
-  background-image: url(https://pixeljoint.com/files/icons/full/battlebg_mistywoods.png);
+  background-image: url(../assets/backgrounds/battlebg_mistywoods.png);
   background-size: cover;
   height: 100vh;
   position: relative;

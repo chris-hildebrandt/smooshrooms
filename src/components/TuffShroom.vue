@@ -2,7 +2,7 @@
   <!-- image for the shroom, and the gif for smooshing -->
   <div draggable="false" class="small-box shroom" :class="'position' + tShroom.location" @click="hitShroom(tShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
-    <img :id="'shroom'+tShroom.id" class="small-box btn m-0" draggable="false" title="basic shroom" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+    <img :id="'shroom'+tShroom.id" class="small-box btn m-0" draggable="false" title="tuff shroom" src="../assets/sprites/shroom2large.webp" alt="Basic-Shroom">
     <img :id="'poof'+tShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">
   </div>
 </template>
