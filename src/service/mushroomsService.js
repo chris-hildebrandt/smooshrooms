@@ -19,6 +19,7 @@ hitShroom(id){
 }
 despawn(id){
   const mushroom = this.getShroomById(id)
+  console.log(mushroom)
   $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
 }
 spawnShrooms(){
