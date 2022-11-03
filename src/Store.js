@@ -6,7 +6,7 @@ const Store = createStore({
     stage: 0,
     smooshPower: 1,
     basicShrooms: [],
-    tuffShroom: 1,
+    tuffShrooms: [],
     splinterShrooms: 0,
     buffShrooms: 0,
 

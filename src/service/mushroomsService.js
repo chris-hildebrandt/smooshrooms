@@ -13,8 +13,8 @@ hitShroom(id){
   const mushroom = this.getShroomById(id)
   mushroom.hitPoints -= $Store.state.smooshPower
   if(mushroom.hitPoints <= 0){
-    setTimeout(()=>{this.despawn(id)}, 700)
     playerService.increaseScore(1)
+    setTimeout(()=>{this.despawn(id)}, 700)
   }
 }
 despawn(id){
@@ -32,6 +32,8 @@ spawnShrooms(){
     mushroom.location = Math.floor(Math.random()*10)
     $Store.state.basicShrooms.push(mushroom)
     break;
+    case 2:
+      
   }
 }
 }
