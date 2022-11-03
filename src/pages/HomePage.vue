@@ -22,7 +22,7 @@ import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
 import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
-import TuffShroom from "@/components/TuffShroom.vue.js";
+import TuffShroom from "@/components/TuffShroom.vue";
 export default {
   setup() {
     onMounted(()=> {
