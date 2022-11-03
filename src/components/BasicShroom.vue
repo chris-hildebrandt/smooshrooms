@@ -28,6 +28,7 @@ setup(props){
     })
 return{
   toast,
+  // this should be moved to the app or homepage
   hitShroom(id){
     try {
       const shroom = document.getElementById('shroom'+ id)
