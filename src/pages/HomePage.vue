@@ -143,6 +143,9 @@ h1{
   font-family: 'Irish Grover', cursive;
   font-size: xx-large;
 }
+.disabled{
+  pointer-events: none;
+}
 // font-family: 'Bangers', cursive;
 // font-family: 'Berkshire Swash', cursive;
 // font-family: 'Black And White Picture', sans-serif;

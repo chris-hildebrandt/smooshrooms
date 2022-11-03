@@ -13,6 +13,7 @@ hitShroom(id){
   const mushroom = this.getShroomById(id)
   mushroom.hitPoints -= $Store.state.smooshPower
   if(mushroom.hitPoints <= 0){
+    mushroom.disabled = true
     playerService.increaseScore(1)
     this.determineDespawnScenario(mushroom.id)
   }
@@ -40,6 +41,7 @@ spawnShrooms(){
       // how can I store this information better? should it exist on the component?
       mushroom.id = generateId()
       mushroom.name = "BasicShroom"
+      mushroom.disabled = false
       mushroom.hitPoints = 1
       mushroom.location = Math.floor(Math.random()*10)
       $Store.state.basicShrooms.push(mushroom)
@@ -56,7 +58,12 @@ spawnShrooms(){
         mushroom.hitPoints = 2
         $Store.state.tuffShrooms.push(mushroom)
       }
+// stages: [['basic'], [75:'basic', 100:'tuff']]
+// mushroomTypes: [{name: 'basicMushroom', }]
 
+// let rand1 = Math.random()*100
+// store.stage[cu]
+// sttore.stages[currentStage][rand1]
   }
 }
 }
