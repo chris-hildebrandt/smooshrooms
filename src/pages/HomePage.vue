@@ -1,10 +1,17 @@
 <template>
-  <div class="container-fluid stage">
+  <div :class="'stage' + stage" class="container-fluid">
     <h1 class="text-light text-shadow pt-3">Smooshrooms!</h1>
     <div class="score text-light text-shadow" title="player score">Score: 
 {{score}}
     </div>
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
+    <div v-if="stage <= 0" class="ramblin">
+      <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'">
+      <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'">
+          <img class="img-small" src="../assets/38163b334b3fba5.png" alt="">
+        </marquee>
+      </marquee>
+    </div>
         <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
         <div v-for="b in basicShrooms" :key="b.id">
           <BasicShroom :bShroom="b" />
@@ -45,9 +52,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.stage{
-  // background-image: url(https://pixeljoint.com/files/icons/full/battlebg_mistywoods.png);
+.img-small {
+  height: 100px;
+}
+.ramblin marquee {
+  min-height: 70vh;
+  display: block;
+  width: 100%;
+}
+.ramblin marquee marquee {
+  height: 100%;
+  width: 100%;
+}
+.stage0{
+  background-image: url(../assets/2fae6db4ec5ee1919d54329a7c33b14c.png);
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+.stage1{
   background-image: url(https://img.itch.zone/aW1hZ2UvNDU5NTAzLzIzMzc2NzYuanBn/original/kpTywm.jpg);
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+.stage2{
+  background-image: url(https://pixeljoint.com/files/icons/full/battlebg_mistywoods.png);
   background-size: cover;
   height: 100vh;
   position: relative;
