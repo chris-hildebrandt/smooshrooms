@@ -26,14 +26,26 @@ spawnShrooms(){
   const mushroom = {}
   switch($Store.state.stage){
     case 1:
-    mushroom.id = generateId()
-    mushroom.name = "BasicShroom"
-    mushroom.hitPoints = 1
-    mushroom.location = Math.floor(Math.random()*10)
-    $Store.state.basicShrooms.push(mushroom)
+      // how can I store this information better? should it exist on the component?
+      mushroom.id = generateId()
+      mushroom.name = "BasicShroom"
+      mushroom.hitPoints = 1
+      mushroom.location = Math.floor(Math.random()*10)
+      $Store.state.basicShrooms.push(mushroom)
     break;
     case 2:
-      
+      mushroom.id = generateId()
+      mushroom.location = Math.floor(Math.random()*10)
+      if(Math.random() > .5){
+        mushroom.name = "BasicShroom"
+        mushroom.hitPoints = 1
+        $Store.state.basicShrooms.push(mushroom)
+      } else {
+        mushroom.name = "TuffShroom"
+        mushroom.hitPoints = 2
+        $Store.state.tuffShrooms.push(mushroom)
+      }
+
   }
 }
 }
