@@ -1,6 +1,6 @@
 <template>
   <!-- image for the shroom, and the gif for smooshing -->
-  <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location" :disabled="disabled" @click="hitShroom(bShroom.id)" >
+  <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location + ' ' + disabled" @click="hitShroom(bShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
     <img :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" title="basic shroom" src="../assets/sprites/brown-shroom.png" alt="Basic-Shroom">
     <img :id="'poof'+bShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">
@@ -17,7 +17,7 @@ export default {
   props: {bShroom: { type: Object, required: true }},
   // props are passed down to the setup for use inside my functions
 setup(props){
-  let disabled = false
+  let disabled = ''
   const toast = useToast()
   // each instance of the component loads with a despawn timer
   onMounted(()=> {
@@ -39,7 +39,7 @@ return{
       poof.classList.remove('d-none')
       mushroomsService.hitShroom(id)
       if(props.bShroom.hitPoints <= 0){
-        disabled = !disabled
+        disabled = 'disabled'
       }
     } catch (error) {
       toast.danger("hitting shroom", error)
@@ -54,5 +54,8 @@ return{
 .small-box{
   height: 100px;
   width: auto;
+}
+.disabled{
+  pointer-events: none;
 }
 </style>

@@ -14,15 +14,24 @@ hitShroom(id){
   mushroom.hitPoints -= $Store.state.smooshPower
   if(mushroom.hitPoints <= 0){
     playerService.increaseScore(1)
-    setTimeout(()=>{this.despawn(id)}, 700)
+    this.determineDespawnScenario
   }
 }
-despawn(id){
+determineDespawnScenario(id){
   const mushroom = this.getShroomById(id)
   if (mushroom.hitPoints > 0){
-    console.log(mushroom)
-    $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
+    this.instantDespawn(mushroom)
+  } else {
+    this.delayedDespawn(mushroom)
   }
+}
+instantDespawn(mushroom){
+  // splice vs filter
+  const mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
+  $Store.state.basicShrooms.splice(mIndex, 1)
+}
+delayedDespawn(mushroom){
+  setTimeout(()=>{$Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)}, 700)
 }
 spawnShrooms(){
   const mushroom = {}
