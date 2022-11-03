@@ -1,6 +1,6 @@
 <template>
   <!-- image for the shroom, and the gif for smooshing -->
-  <div draggable="false" class="small-box shroom" :class="'position' + bShroom.location" @click="hitShroom(bShroom.id)" >
+  <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location" :disabled="disabled" @click="hitShroom(bShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
     <img :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" title="basic shroom" src="../assets/brown-shroom.png" alt="Basic-Shroom">
     <img :id="'poof'+bShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">
@@ -17,10 +17,11 @@ export default {
   props: {bShroom: { type: Object, required: true }},
   // props are passed down to the setup for use inside my functions
 setup(props){
-  const toast = useToast();
+  let disabled = false
+  const toast = useToast()
   // each instance of the component loads with a despawn timer
   onMounted(()=> {
-    setInterval(()=> {
+    setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
           mushroomsService.despawn(props.bShroom.id)
         }, 1500)
@@ -28,6 +29,7 @@ setup(props){
     })
 return{
   toast,
+  disabled,
   // this should be moved to the app or homepage
   hitShroom(id){
     try {
@@ -36,6 +38,9 @@ return{
       const poof = document.getElementById('poof'+ id)
       poof.classList.remove('d-none')
       mushroomsService.hitShroom(id)
+      if(props.bShroom.hitPoints <= 0){
+        disabled = !disabled
+      }
     } catch (error) {
       toast.danger("hitting shroom", error)
     }

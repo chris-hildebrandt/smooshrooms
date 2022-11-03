@@ -1,9 +1,9 @@
 <template>
   <!-- image for the shroom, and the gif for smooshing -->
-  <div draggable="false" class="small-box shroom" :class="'position' + bShroom.location" @click="hitShroom(bShroom.id)" >
+  <div draggable="false" class="small-box shroom" :class="'position' + tShroom.location" @click="hitShroom(tShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
-    <img :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" title="basic shroom" src="../assets/brown-shroom.png" alt="Basic-Shroom">
-    <img :id="'poof'+bShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">
+    <img :id="'shroom'+tShroom.id" class="small-box btn m-0" draggable="false" title="basic shroom" src="../assets/brown-shroom.png" alt="Basic-Shroom">
+    <img :id="'poof'+tShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">
   </div>
 </template>
 
@@ -14,15 +14,15 @@ import {mushroomsService} from "../service/mushroomsService.js"
 
 export default {
   // the props contain the information given to each instance of this component
-  props: {bShroom: { type: Object, required: true }},
+  props: {tShroom: { type: Object, required: true }},
   // props are passed down to the setup for use inside my functions
 setup(props){
   const toast = useToast();
   // each instance of the component loads with a despawn timer
   onMounted(()=> {
-    setInterval(()=> {
+    setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
-          mushroomsService.despawn(props.bShroom.id)
+          mushroomsService.despawn(props.tShroom.id)
         }, 1500)
         // this used to be a random value but a set time is probably best for lvl 1
     })

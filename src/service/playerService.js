@@ -7,5 +7,8 @@ class PlayerService{
       $Store.state.stage = 2
     }
   }
+  increaseStage(){
+    $Store.state.stage++
+  }
 }
 export const playerService = new PlayerService()
