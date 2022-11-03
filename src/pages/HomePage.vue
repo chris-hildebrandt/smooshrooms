@@ -8,7 +8,7 @@
     <div v-if="stage <= 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'">
-          <img class="img-small" src="../assets/38163b334b3fba5.png" alt="">
+          <img class="img-small" src="../assets/sprites/38163b334b3fba5.png" alt="">
         </marquee>
       </marquee>
     </div>
