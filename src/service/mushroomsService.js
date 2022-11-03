@@ -14,7 +14,7 @@ hitShroom(id){
   mushroom.hitPoints -= $Store.state.smooshPower
   if(mushroom.hitPoints <= 0){
     playerService.increaseScore(1)
-    this.determineDespawnScenario
+    this.determineDespawnScenario(mushroom.id)
   }
 }
 determineDespawnScenario(id){
