@@ -5,6 +5,8 @@ const Store = createStore({
     score: 0,
     stage: 0,
     smooshPower: 1,
+    // increase padding on images to create larger "splash area" for weapon
+    smooshArea: 1,
     basicShrooms: [],
     tuffShrooms: [],
     splinterShrooms: 0,
