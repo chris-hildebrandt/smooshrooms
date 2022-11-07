@@ -2,7 +2,10 @@
   <!-- image for the shroom, and the gif for smooshing -->
   <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location + ' ' + (bShroom.disabled ? 'disabled' : '')" @click="hitShroom(bShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
-    <img :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" :src="bShroom.img" alt="Basic-Shroom">
+    <img v-if="bShroom.img == 1" :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" src="../assets/sprites/brown-shroom.png" alt="Basic-Shroom">
+    <img v-else :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" src="../assets/sprites/shroom2large.webp" alt="Basic-Shroom">
+    <!-- why can't I data bind the img path? -->
+    <!-- <img :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" :src="bShroom.img" alt="Basic-Shroom"></img> -->
     <img :id="'poof'+bShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">
   </div>
 </template>
@@ -27,7 +30,7 @@ setup(props){
     setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
           mushroomsService.determineDespawnScenario(props.bShroom.id)
-        }, 1500)
+        }, 15000)
         // this used to be a random value but a set time is probably best for lvl 1
     })
 return{

@@ -147,6 +147,9 @@ h1{
 img{
   user-select: none;
 }
+body{
+  cursor: url("../assets/logo.png") !important;
+}
 // font-family: 'Bangers', cursive;
 // font-family: 'Berkshire Swash', cursive;
 // font-family: 'Black And White Picture', sans-serif;
