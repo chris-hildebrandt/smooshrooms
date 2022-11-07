@@ -41,8 +41,10 @@ export default {
       spawnInterval: '',
       startGame(){
         this.spawnInterval = setInterval(()=> {
-          mushroomsService.spawnShrooms()
-        }, Math.random()*5000)
+          setTimeout(() => {
+            mushroomsService.spawnShrooms()
+          }, Math.random()*3000);
+        }, 1000)
         playerService.increaseStage()
       },
     };
@@ -145,6 +147,9 @@ h1{
 }
 .disabled{
   pointer-events: none;
+}
+img{
+  user-select: none;
 }
 // font-family: 'Bangers', cursive;
 // font-family: 'Berkshire Swash', cursive;

@@ -27,7 +27,7 @@ setup(props){
     setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
           mushroomsService.determineDespawnScenario(props.bShroom.id)
-        }, 150000)
+        }, 1500)
         // this used to be a random value but a set time is probably best for lvl 1
     })
 return{
@@ -56,5 +56,8 @@ return{
 }
 .disabled{
   pointer-events: none;
+}
+img{
+  user-select: none;
 }
 </style>

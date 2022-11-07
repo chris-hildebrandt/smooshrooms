@@ -50,4 +50,7 @@ return{
   height: 100px;
   width: auto;
 }
+img{
+  user-select: none;
+}
 </style>
