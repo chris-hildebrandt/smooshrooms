@@ -16,9 +16,6 @@
         <div v-for="b in basicShrooms" :key="b.id">
           <BasicShroom :bShroom="b" />
         </div>
-        <div v-for="t in tuffShrooms" :key="t.id">
-          <TuffShroom :tShroom="t" />
-        </div>
       </div>
 </template>
 
@@ -29,7 +26,6 @@ import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
 import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
-import TuffShroom from "@/components/TuffShroom.vue";
 export default {
   setup() {
     onMounted(()=> {
@@ -49,7 +45,7 @@ export default {
       },
     };
   },
-  components: { BasicShroom, TuffShroom }
+  components: { BasicShroom }
 }
 </script>
 
