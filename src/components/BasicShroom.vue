@@ -38,10 +38,6 @@ return{
   // this should be moved to the app or homepage
   hitShroom(id){
     try {
-      const shroom = document.getElementById('shroom'+ id)
-      shroom.classList.add('d-none')
-      const poof = document.getElementById('poof'+ id)
-      poof.classList.remove('d-none')
       mushroomsService.hitShroom(id)
     } catch (error) {
       toast.danger("hitting shroom", error)

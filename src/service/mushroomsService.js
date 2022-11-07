@@ -13,7 +13,11 @@ hitShroom(id){
   const mushroom = this.getShroomById(id)
   mushroom.hitPoints -= $Store.state.smooshPower
   if(mushroom.hitPoints <= 0){
+    const shroom = document.getElementById('shroom'+ id)
+    const poof = document.getElementById('poof'+ id)
     mushroom.disabled = true
+      shroom.classList.add('d-none')
+      poof.classList.remove('d-none')
     playerService.increaseScore(1)
     this.determineDespawnScenario(mushroom.id)
   }
