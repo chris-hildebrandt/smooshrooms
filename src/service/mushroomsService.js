@@ -41,6 +41,7 @@ delayedDespawn(mushroom){
 }
 spawnShrooms(){
   const mushroom = {}
+  if(!findOpenLocation()){return}
   switch($Store.state.stage){
     case 1:
       // how can I store this information better? should it exist on the component?
