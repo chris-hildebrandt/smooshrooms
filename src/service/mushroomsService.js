@@ -41,6 +41,7 @@ spawnShrooms(){
       // how can I store this information better? should it exist on the component?
       mushroom.id = generateId()
       mushroom.name = "BasicShroom"
+      mushroom.img = "../assets/sprites/brown-shroom.png"
       mushroom.disabled = false
       mushroom.hitPoints = 1
       mushroom.location = Math.floor(Math.random()*10)
@@ -51,13 +52,15 @@ spawnShrooms(){
         mushroom.id = generateId()
         mushroom.location = Math.floor(Math.random()*10)
         if(Math.random() > .5){
-          mushroom.name = "BasicShroom"
+        mushroom.name = "BasicShroom"
+        mushroom.img = "../assets/sprites/brown-shroom.png"
         mushroom.hitPoints = 1
         $Store.state.basicShrooms.push(mushroom)
       } else {
         mushroom.name = "TuffShroom"
+        mushroom.img = "../assets/sprites/shroom2large.webp"
         mushroom.hitPoints = 2
-        $Store.state.tuffShrooms.push(mushroom)
+        $Store.state.basicShrooms.push(mushroom)
       }
       break;
 // stages: [['basic'], [75:'basic', 100:'tuff']]
