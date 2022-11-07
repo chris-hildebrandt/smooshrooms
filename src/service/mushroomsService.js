@@ -1,6 +1,7 @@
 import {playerService} from "../service/playerService.js"
 import { generateId } from "@/utilities/generateId.js";
 import $Store from '../Store.js'
+import { findOpenLocation } from "@/utilities/findOpenLocation.js";
 class MushroomsService {
 
 getShroomById(id){
@@ -16,8 +17,8 @@ hitShroom(id){
     const shroom = document.getElementById('shroom'+ id)
     const poof = document.getElementById('poof'+ id)
     mushroom.disabled = true
-      shroom.classList.add('d-none')
-      poof.classList.remove('d-none')
+    shroom.classList.add('d-none')
+    poof.classList.remove('d-none')
     playerService.increaseScore(1)
     this.determineDespawnScenario(mushroom.id)
   }
@@ -48,7 +49,7 @@ spawnShrooms(){
       mushroom.img = 1
       mushroom.disabled = false
       mushroom.hitPoints = 1
-      mushroom.location = Math.floor(Math.random()*10)
+      mushroom.location = findOpenLocation()
       $Store.state.basicShrooms.push(mushroom)
       break;
       
