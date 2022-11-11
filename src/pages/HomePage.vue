@@ -6,8 +6,8 @@
     </div>
     <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
-      <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'">
-        <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'">
+      <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
+        <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">
           <img class="img-small" src="../assets/sprites/38163b334b3fba5.png" alt="">
         </marquee>
       </marquee>
@@ -54,7 +54,7 @@ export default {
   height: 100px;
 }
 .ramblin marquee {
-  min-height: 70vh;
+  min-height: 78vh;
   display: block;
   width: 100%;
 }
