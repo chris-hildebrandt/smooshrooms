@@ -11,7 +11,12 @@ const Store = createStore({
     tuffShrooms: [],
     splinterShrooms: 0,
     buffShrooms: 0,
-
+    xChild: 0,
+    yChild: 0,
+    xParent: 0,
+    yParent: 0,
+    hover: false,
+    hideCursor: true
   },
   getters: {},
   mutations: {}

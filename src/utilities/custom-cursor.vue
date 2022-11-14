@@ -9,17 +9,7 @@
 
 <script>
 export default {
-setup(){
-  new Vue({
   el: "#app",
-  data: {
-    xChild: 0,
-    yChild: 0,
-    xParent: 0,
-    yParent: 0,
-    hover: false,
-    hideCursor: true
-  },
   computed: {
     cursorCircle() {
       return `transform: translateX(${this.xParent}px) translateY(${this.yParent}px) translateZ(0) translate3d(0, 0, 0);`
@@ -47,9 +37,16 @@ setup(){
       this.hideCursor = false;
     });
     
-  }
-})
-return{}
+  },
+setup(){
+return{
+  xChild: 0,
+    yChild: 0,
+    xParent: 0,
+    yParent: 0,
+    hover: false,
+    hideCursor: true
+}
 }
 }
 </script>
@@ -58,12 +55,8 @@ return{}
 body, html {
   width: 100%;
   height: 100%;
-  background: #000;
   margin: 0;
   cursor: none;
-  display: flex;
-  justify-content: center;
-  align-items:  center;
 }
 .g-cursor {
 
