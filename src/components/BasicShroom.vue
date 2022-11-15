@@ -3,7 +3,8 @@
   <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location + ' ' + (bShroom.disabled ? 'disabled' : '')" @click="hitShroom(bShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
     <img v-if="bShroom.img == 1" :id="'shroom'+bShroom.id" class="small-box btn m-0 attack-cursor" draggable="false" :title="bShroom.name" src="../assets/sprites/brown-shroom.png" alt="Basic-Shroom">
-    <img v-else :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" src="../assets/sprites/shroom2large.webp" alt="Basic-Shroom">
+    <img v-if="bShrrom.img == 2" :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" src="../assets/sprites/shroom2large.webp" alt="Basic-Shroom">
+    <img v-if="bShrrom.img == 3" :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" src="../assets/sprites/Monster_fungus_big_stand_full.webp" alt="Basic-Shroom">
     <!-- why can't I data bind the img path? -->
     <!-- <img :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" :src="bShroom.img" alt="Basic-Shroom"></img> -->
     <img :id="'poof'+bShroom.id" class="small-box m-0 d-none" draggable="false" src="https://animated-gif-creator.com/images/01/the-one-who-got-away_86.gif" alt="poof">

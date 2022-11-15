@@ -69,6 +69,21 @@ spawnShrooms(){
         $Store.state.basicShrooms.push(mushroom)
       }
       break;
+
+      case 3:
+        mushroom.id = generateId()
+        mushroom.location = Math.floor(Math.random()*10)
+        mushroom.name = "skitterShroom"
+        mushroom.img = 3
+        mushroom.hitPoints = 1
+        $Store.state.basicShrooms.push(mushroom)
+      } else {
+        mushroom.name = "TuffShroom"
+        mushroom.img = 2
+        mushroom.hitPoints = 2
+        $Store.state.basicShrooms.push(mushroom)
+      }
+      break;
 // stages: [['basic'], [75:'basic', 100:'tuff']]
 // mushroomTypes: [{name: 'basicMushroom', }]
 
