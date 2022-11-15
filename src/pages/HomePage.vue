@@ -16,6 +16,9 @@
         <div v-for="b in basicShrooms" :key="b.id">
           <BasicShroom :bShroom="b" />
         </div>
+        <div v-for="m in moveShrooms" :key="m.id">
+          <MoveShrooms :mShroom="m"/>
+        </div>
       </div>
 </template>
 
@@ -33,6 +36,7 @@ export default {
     return {
       score: computed(()=> $Store.state.score),
       basicShrooms: computed(() => $Store.state.basicShrooms),
+      moveShrooms: computed(()=> $Store.state.moveShrooms),
       stage: computed(() => $Store.state.stage),
       spawnInterval: '',
       startGame(){
@@ -76,6 +80,12 @@ export default {
 }
 .stage2{
   background-image: url(../assets/backgrounds/battlebg_mistywoods.png);
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+.stage3{
+  background-image: url(../assets/backgrounds/03cd4bf97bd4d21d2178bbe358528ba8.png);
   background-size: cover;
   height: 100vh;
   position: relative;

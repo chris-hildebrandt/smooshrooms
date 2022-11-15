@@ -1,6 +1,7 @@
 import $Store from '../Store.js'
 export function randomMarquee(id) {
-  $Store.state.mushroom(letter => {
+  let mushroom = $Store.state.basicShrooms.find(m => m.id == id)
+   {
     switch (letter.direction) {
       case 0:
         letter.height++

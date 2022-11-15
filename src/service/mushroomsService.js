@@ -76,21 +76,14 @@ spawnShrooms(){
         mushroom.name = "skitterShroom"
         mushroom.img = 3
         mushroom.hitPoints = 1
-        $Store.state.basicShrooms.push(mushroom)
-      } else {
-        mushroom.name = "TuffShroom"
-        mushroom.img = 2
-        mushroom.hitPoints = 2
-        $Store.state.basicShrooms.push(mushroom)
-      }
+        $Store.state.moveShrooms.push(mushroom)
       break;
 // stages: [['basic'], [75:'basic', 100:'tuff']]
 // mushroomTypes: [{name: 'basicMushroom', }]
-
 // let rand1 = Math.random()*100
 // store.stage[cu]
 // sttore.stages[currentStage][rand1]
+    }
   }
-}
 }
 export const mushroomsService = new MushroomsService()
