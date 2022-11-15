@@ -76,6 +76,9 @@ spawnShrooms(){
         mushroom.name = "skitterShroom"
         mushroom.img = 3
         mushroom.hitPoints = 1
+        mushroom.height = Math.random() * (window.innerHeight - 50)
+        mushroom.width = Math.random() * (window.innerWidth - 50)
+        mushroom.direction = Math.floor(Math.random() * 4)
         $Store.state.moveShrooms.push(mushroom)
       break;
 // stages: [['basic'], [75:'basic', 100:'tuff']]

@@ -1,44 +1,43 @@
 import $Store from '../Store.js'
 export function randomMarquee(id) {
-  let mushroom = $Store.state.basicShrooms.find(m => m.id == id)
+  let mushroom = $Store.state.moveShrooms.find(m => m.id == id)
    {
-    switch (letter.direction) {
+    switch (mushroom.direction) {
       case 0:
-        letter.height++
-        if (letter.height >= window.innerHeight - 50) {
-          letter.height = window.innerHeight - 50
+        mushroom.height++
+        if (mushroom.height >= window.innerHeight - 50) {
+          mushroom.height = window.innerHeight - 50
           let options = [1, 2, 3]
-          letter.direction = options[Math.floor(Math.random() * 3)]
+          mushroom.direction = options[Math.floor(Math.random() * 3)]
         }
-        return
-        break
+        break;
+
       case 1:
-        letter.height--
-        if (letter.height <= 50) {
-          letter.height = 50
+        mushroom.height--
+        if (mushroom.height <= 50) {
+          mushroom.height = 50
           let options = [0, 2, 3]
-          letter.direction = options[Math.floor(Math.random() * 3)]
+          mushroom.direction = options[Math.floor(Math.random() * 3)]
         }
-        return
-        break
+        break;
+
       case 2:
-        letter.width++
-        if (letter.width >= window.innerWidth - 50) {
-          letter.width = window.innerWidth - 50
+        mushroom.width++
+        if (mushroom.width >= window.innerWidth - 50) {
+          mushroom.width = window.innerWidth - 50
           let options = [1, 0, 3]
-          letter.direction = options[Math.floor(Math.random() * 3)]
+          mushroom.direction = options[Math.floor(Math.random() * 3)]
         }
-        return
-        break
+        break;
+
       case 3:
-        letter.width--
-        if (letter.width <= 50) {
-          letter.width = 50
+        mushroom.width--
+        if (mushroom.width <= 50) {
+          mushroom.width = 50
           let options = [1, 2, 0]
-          letter.direction = options[Math.floor(Math.random() * 3)]
+          mushroom.direction = options[Math.floor(Math.random() * 3)]
         }
-        return
-        break
+        break;
     }
-  })
+  }
 }

@@ -13,12 +13,12 @@
       </marquee>
     </div>
         <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
-        <div v-for="b in basicShrooms" :key="b.id">
-          <BasicShroom :bShroom="b" />
-        </div>
-        <div v-for="m in moveShrooms" :key="m.id">
+            <div v-for="b in basicShrooms" :key="b.id">
+              <BasicShroom :bShroom="b" />
+            </div>
+        <!-- <div v-for="m in moveShrooms" :key="m.id">
           <MoveShrooms :mShroom="m"/>
-        </div>
+        </div> -->
       </div>
 </template>
 
