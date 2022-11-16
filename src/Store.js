@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 const Store = createStore({
   state: {
+    shroomsRemaining: 0,
     score: 0,
     stage: 0,
     smooshPower: 1,

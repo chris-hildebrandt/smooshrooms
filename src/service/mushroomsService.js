@@ -20,8 +20,15 @@ hitShroom(id){
     shroom.classList.add('d-none')
     poof.classList.remove('d-none')
     playerService.increaseScore(1)
+    this.decreaseRemainingShrooms()
     this.determineDespawnScenario(mushroom.id)
   }
+}
+decreaseRemainingShrooms(){
+  $Store.state.shroomsRemaining--
+    if($Store.state.shroomsRemaining <= 0){
+      playerService.increaseStage()
+    }
 }
 determineDespawnScenario(id){
   const mushroom = this.getShroomById(id)

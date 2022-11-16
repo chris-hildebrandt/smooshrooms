@@ -1,5 +1,8 @@
 <template>
   <div :class="'stage' + stage" class="container-fluid">
+    <div class="shrooms-remaining text-light text-shadow" title="player score">Shrooms: 
+    {{shroomsRemaining}}
+    </div>
     <h1 class="text-light text-shadow pt-3">Smooshrooms!</h1>
     <div class="score text-light text-shadow" title="player score">Score: 
 {{score}}
@@ -34,6 +37,7 @@ export default {
     onMounted(()=> {
     })
     return {
+      shroomsRemaining: computed(()=> $Store.state.shroomsRemaining),
       score: computed(()=> $Store.state.score),
       basicShrooms: computed(() => $Store.state.basicShrooms),
       moveShrooms: computed(()=> $Store.state.moveShrooms),
@@ -148,6 +152,15 @@ h1{
   position: absolute;
   top: 10px;
   right: 50px;
+  font-family: 'Irish Grover', cursive;
+  font-size: xx-large;
+}
+.shrooms-remaining{
+  font-weight: 700;
+  user-select: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   font-family: 'Irish Grover', cursive;
   font-size: xx-large;
 }
