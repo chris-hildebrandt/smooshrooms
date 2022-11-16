@@ -2,9 +2,9 @@ import { createStore } from 'vuex'
 
 const Store = createStore({
   state: {
-    shroomsRemaining: 0,
+    shroomsRemaining: 25,
     score: 0,
-    stage: 0,
+    stage: 3,
     smooshPower: 1,
     // increase padding on images to create larger "splash area" for weapon
     smooshArea: 1,

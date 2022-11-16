@@ -79,7 +79,6 @@ spawnShrooms(){
 
       case 3:
         mushroom.id = generateId()
-        mushroom.location = Math.floor(Math.random()*10)
         mushroom.name = "skitterShroom"
         mushroom.img = 3
         mushroom.hitPoints = 1

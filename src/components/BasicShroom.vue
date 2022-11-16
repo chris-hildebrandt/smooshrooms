@@ -54,6 +54,7 @@ return{
 .small-box{
   height: 100px;
   width: auto;
+  margin: 0;
 }
 .disabled{
   pointer-events: none;

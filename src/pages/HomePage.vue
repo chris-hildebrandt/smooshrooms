@@ -1,13 +1,11 @@
 <template>
-  <div :class="'stage' + stage" class="container-fluid">
-    <div class="shrooms-remaining text-light text-shadow" title="player score">Shrooms: 
-    {{shroomsRemaining}}
+  <div :class="'stage' + stage" class="container-fluid m-0">
+    <h1 class="text-light text-shadow pt-3 mt-0">Smooshrooms!</h1>
+    <div class="shrooms-remaining text-light text-shadow m-0" title="player score">Shrooms: {{shroomsRemaining}}
     </div>
-    <h1 class="text-light text-shadow pt-3">Smooshrooms!</h1>
-    <div class="score text-light text-shadow" title="player score">Score: 
-{{score}}
+    <div class="score text-light text-shadow m-0" title="player score">Score: {{score}}
     </div>
-    <button v-if="stage <= 0" class="btn btn-info" @click="startGame()">START GAME</button>
+    <button v-if="stage <= 0" class="btn btn-info " @click="startGame()">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
         <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">
@@ -15,14 +13,13 @@
         </marquee>
       </marquee>
     </div>
-        <!-- <img title="basic shroom" class="shroom btn m-0" @click="hitShroom(bShroom.id)" src="../assets/brown-shroom.png" alt="Basic-Shroom"> -->
-            <div v-for="b in basicShrooms" :key="b.id">
-              <BasicShroom :bShroom="b" />
-            </div>
-        <!-- <div v-for="m in moveShrooms" :key="m.id">
-          <MoveShrooms :mShroom="m"/>
-        </div> -->
-      </div>
+    <div v-for="b in basicShrooms" :key="b.id">
+      <BasicShroom :bShroom="b" />
+    </div>
+    <div v-for="m in moveShrooms" :key="m.id">
+      <MoveShrooms :mShroom="m"/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -32,6 +29,7 @@ import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
 import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
+import MoveShrooms from "@/components/MoveShrooms.vue";
 export default {
   setup() {
     onMounted(()=> {
@@ -53,7 +51,7 @@ export default {
       },
     };
   },
-  components: { BasicShroom }
+  components: { BasicShroom, MoveShrooms }
 }
 </script>
 
@@ -160,7 +158,7 @@ h1{
   user-select: none;
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 20px;
   font-family: 'Irish Grover', cursive;
   font-size: xx-large;
 }
