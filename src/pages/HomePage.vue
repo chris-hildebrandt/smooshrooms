@@ -17,7 +17,7 @@
       <BasicShroom :bShroom="b" />
     </div>
     <div v-for="m in moveShrooms" :key="m.id">
-      <MoveShrooms :mShroom="m"/>
+      <MoveShrooms :mShroom="m" class="position-absolute"/>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ import { mushroomsService } from "../service/mushroomsService.js"
 import BasicShroom from "@/components/BasicShroom.vue";
 import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
-import { playerService } from "@/service/playerService.js";
+// import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
 import MoveShrooms from "@/components/MoveShrooms.vue";
 export default {
@@ -47,7 +47,8 @@ export default {
             mushroomsService.spawnShrooms()
           }, Math.random()*3000);
         }, 1000)
-        playerService.increaseStage()
+        $Store.state.stage = 3
+        // playerService.increaseStage()
       },
     };
   },
@@ -56,6 +57,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.position-absolute{
+  position: absolute;
+}
 .img-small {
   height: 100px;
 }
