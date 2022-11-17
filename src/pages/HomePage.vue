@@ -1,5 +1,5 @@
 <template>
-  <div :class="'stage' + stage" class="container-fluid m-0">
+  <div :class="'stage' + stage" class="container-fluid m-0" @click="miss()">
     <h1 class="text-light text-shadow pt-3 mt-0">Smooshrooms!</h1>
     <div class="shrooms-remaining text-light text-shadow m-0" title="player score">Shrooms: {{shroomsRemaining}}
     </div>
@@ -37,10 +37,14 @@ export default {
     return {
       shroomsRemaining: computed(()=> $Store.state.shroomsRemaining),
       score: computed(()=> $Store.state.score),
+      missCount: computed(()=> $Store.state.missCount),
       basicShrooms: computed(() => $Store.state.basicShrooms),
       moveShrooms: computed(()=> $Store.state.moveShrooms),
       stage: computed(() => $Store.state.stage),
       spawnInterval: '',
+      miss(){
+        $Store.state.missCount++
+      },
       startGame(){
         this.spawnInterval = setInterval(()=> {
           setTimeout(() => {
@@ -91,7 +95,7 @@ export default {
   position: relative;
 }
 .stage3{
-  background-image: url(../assets/backgrounds/03cd4bf97bd4d21d2178bbe358528ba8.png);
+  background-image: url(../assets/backgrounds/25348680_1764582217169734_6790415359979685553_n.jpg);
   background-size: cover;
   height: 100vh;
   position: relative;
