@@ -23,6 +23,11 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.hover-grow:hover{
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 6px white);
+}
+
 /* body{
   cursor: url("https://cur.cursors-4u.net/sports/spo-1/spo26.cur");
 } */

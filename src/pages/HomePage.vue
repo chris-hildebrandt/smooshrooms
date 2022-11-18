@@ -3,13 +3,15 @@
     <h1 class="text-light text-shadow pt-3 mt-0">Smooshrooms!</h1>
     <div class="shrooms-remaining text-light text-shadow m-0" title="player score">Shrooms: {{shroomsRemaining}}
     </div>
+    <div class="miss-count text-light text-shadow m-0" title="misses">Missed: {{missCount}}
+    </div>
     <div class="score text-light text-shadow m-0" title="player score">Score: {{score}}
     </div>
     <button v-if="stage <= 0" class="btn btn-info " @click="startGame()">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
         <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">
-          <img class="img-small" src="../assets/sprites/38163b334b3fba5.png" alt="" draggable="false">
+          <img class="img-small hover-grow click-spin" src="../assets/sprites/38163b334b3fba5.png" alt="" draggable="false">
         </marquee>
       </marquee>
     </div>
@@ -27,7 +29,7 @@ import { mushroomsService } from "../service/mushroomsService.js"
 import BasicShroom from "@/components/BasicShroom.vue";
 import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
-// import { playerService } from "@/service/playerService.js";
+import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
 import MoveShrooms from "@/components/MoveShrooms.vue";
 export default {
@@ -51,8 +53,8 @@ export default {
             mushroomsService.spawnShrooms()
           }, Math.random()*3000);
         }, 1000)
-        $Store.state.stage = 3
-        // playerService.increaseStage()
+        // $Store.state.stage = 3
+        playerService.increaseStage()
       },
     };
   },
@@ -95,8 +97,8 @@ export default {
   position: relative;
 }
 .stage3{
-  background-image: url(../assets/backgrounds/25348680_1764582217169734_6790415359979685553_n.jpg);
-  background-size: cover;
+  background-image: url(../assets/backgrounds/7c09de6de6b3c0cf8e89101c6002ad22.png);
+  background-size: contain;
   height: 100vh;
   position: relative;
 }
@@ -167,6 +169,15 @@ h1{
   position: absolute;
   top: 10px;
   left: 20px;
+  font-family: 'Irish Grover', cursive;
+  font-size: xx-large;
+}
+.miss-count{
+  font-weight: 700;
+  user-select: none;
+  position: absolute;
+  top: 10px;
+  left: 300px;
   font-family: 'Irish Grover', cursive;
   font-size: xx-large;
 }
