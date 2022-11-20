@@ -1,5 +1,5 @@
 <template>
-  <div :class="'stage' + stage" class="container-fluid m-0" @click="miss()">
+  <div id="stage" :class="'stage' + stage" class="container-fluid m-0" @click="miss()">
     <h1 class="text-light text-shadow pt-3 mt-0">Smooshrooms!</h1>
     <div class="shrooms-remaining text-light text-shadow m-0" title="player score">Shrooms: {{shroomsRemaining}}
     </div>
@@ -7,7 +7,7 @@
     </div>
     <div class="score text-light text-shadow m-0" title="player score">Score: {{score}}
     </div>
-    <button v-if="stage <= 0" class="btn btn-info " @click="startGame()">START GAME</button>
+    <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame()">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
         <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">

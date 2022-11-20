@@ -6,7 +6,7 @@ class PlayerService{
   }
   increaseStage(){
     $Store.state.stage++
-    $Store.state.shroomsRemaining = 25
+    $Store.state.shroomsRemaining = 1
   }
 }
 export const playerService = new PlayerService()

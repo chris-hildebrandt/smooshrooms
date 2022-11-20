@@ -1,7 +1,7 @@
 <template>
   <!-- image for the shroom, and the gif for smooshing -->
   
-  <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location + ' ' + (bShroom.disabled ? 'disabled' : '')" @click="hitShroom(bShroom.id)" >
+  <div draggable="false" class="small-box shroom" :id="bShroom.id" :class="'position' + bShroom.location + ' ' + (bShroom.disabled ? 'disabled' : '')" @click.stop="hitShroom(bShroom.id)" >
     <!-- location is a random number between 1-10 tied to a set of css props for location on the dom -->
     <img v-if="bShroom.img == 1" :id="'shroom'+bShroom.id" class="small-box btn m-0 attack-cursor hover-grow" draggable="false" :title="bShroom.name" src="../assets/sprites/brown-shroom.png" alt="Basic-Shroom">
     <img v-if="bShroom.img == 2" :id="'shroom'+bShroom.id" class="small-box btn m-0" draggable="false" :title="bShroom.name" src="../assets/sprites/shroom2large.webp" alt="Basic-Shroom">
