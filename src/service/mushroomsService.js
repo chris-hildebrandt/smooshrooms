@@ -99,11 +99,12 @@ class MushroomsService {
     $Store.state.basicShrooms.push(new Mushroom(mushroom))
   }
   incrementSpin(){
-    $Store.state.spinDeg++
-    if($Store.state.spinDeg >= 360){
-      $Store.state.spinDeg = 0
-      return
-    }
+    $Store.state.spinDeg += 360
+    // $Store.state.spinDeg++
+    // if($Store.state.spinDeg >= 360){
+    //   $Store.state.spinDeg = 0
+    //   return
+    // }
   }
 }
 export const mushroomsService = new MushroomsService()
