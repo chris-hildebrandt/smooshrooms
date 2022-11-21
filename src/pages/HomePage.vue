@@ -11,7 +11,7 @@
     <div v-if="stage == 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
         <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">
-          <img class="img-small hover-grow click-spin" src="../assets/sprites/38163b334b3fba5.png" alt="" draggable="false">
+          <img id="click-spin" class="img-small hover-grow" src="../assets/sprites/38163b334b3fba5.png" alt="" draggable="false" @click.stop="spin()" :style="rotate(spinDeg)">
         </marquee>
       </marquee>
     </div>
@@ -32,6 +32,7 @@ import $Store from '../Store.js'
 import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
 import MoveShrooms from "@/components/MoveShrooms.vue";
+
 export default {
   setup() {
     onMounted(()=> {
@@ -43,10 +44,16 @@ export default {
       basicShrooms: computed(() => $Store.state.basicShrooms),
       moveShrooms: computed(()=> $Store.state.moveShrooms),
       stage: computed(() => $Store.state.stage),
+      spinDeg: computed(()=> $Store.state.spinDeg)
       spawnInterval: '',
       miss(){
         $Store.state.missCount++
       },
+      spin(){
+  for(let i = 0; i <= 360; i++){
+    document.getElementById('click-spin').style.transform = `rotate(${i}deg)`
+  }
+},
       startGame(){
         this.spawnInterval = setInterval(()=> {
           setTimeout(() => {
@@ -187,6 +194,11 @@ h1{
 img{
   user-select: none;
 }
+
+  // .click-spin:active{
+  //   transition: 1s;
+  //   transform: rotate(350deg);
+  // }
 
 // font-family: 'Bangers', cursive;
 // font-family: 'Berkshire Swash', cursive;
