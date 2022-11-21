@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 const Store = createStore({
   state: {
+    spinDeg: 0,
     shroomsRemaining: 1,
     score: 0,
     missCount: 0,

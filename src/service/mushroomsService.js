@@ -52,6 +52,8 @@ class MushroomsService {
   spawnShrooms() {
     const mushroom = {}
     if (!findOpenLocation()) { return }
+    if ($Store.state.basicShrooms.length >= 10){return}
+    if ($Store.state.moveShrooms.length >= 10){return}
     switch ($Store.state.stage) {
       case 1:
         // how can I store this information better? should it exist on the component?
@@ -95,6 +97,13 @@ class MushroomsService {
       return
     }
     $Store.state.basicShrooms.push(new Mushroom(mushroom))
+  }
+  incrementSpin(){
+    $Store.state.spinDeg++
+    if($Store.state.spinDeg >= 360){
+      $Store.state.spinDeg = 0
+      return
+    }
   }
 }
 export const mushroomsService = new MushroomsService()
