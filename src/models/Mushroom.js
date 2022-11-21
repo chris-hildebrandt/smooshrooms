@@ -12,9 +12,9 @@ export class Mushroom {
     this.disabled = data.disabled || false
     this.despawnDelay = data.despawnDelay
     this.type = data.type || 'stationary'
-    this.direction = data.direction || {
-      x: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').offsetWidth, max: document.getElementById('stage').offsetWidth },
-      y: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').offsetHeight, max: document.getElementById('stage').offsetHeight }
+    this.direction = {
+      x: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientWidth, max: document.getElementById('stage').clientWidth },
+      y: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientHeight, max: document.getElementById('stage').clientHeight }
     }
   }
 }
