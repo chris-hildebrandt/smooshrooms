@@ -19,9 +19,15 @@
 </template>
 
 <script>
+import { playerService } from "@/service/playerService.js";
+
 export default {
 setup(){
-return{}
+return{
+  startGame(){
+        playerService.startGame()
+      },
+}
 }
 }
 </script>

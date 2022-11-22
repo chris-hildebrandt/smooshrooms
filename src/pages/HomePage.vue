@@ -59,13 +59,7 @@ export default {
   mushroomsService.incrementSpin()
 },
       startGame(){
-        $Store.state.spawnInterval = setInterval(()=> {
-          setTimeout(() => {
-            mushroomsService.spawnShrooms()
-          }, Math.random()*3000);
-        }, 1000)
-        // $Store.state.stage = 3
-        playerService.increaseStage()
+        playerService.startGame()
       },
     };
   },
