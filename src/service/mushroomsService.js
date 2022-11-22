@@ -23,7 +23,6 @@ class MushroomsService {
       shroom.classList.add('d-none')
       poof.classList.remove('d-none')
       playerService.increaseScore(1)
-      this.decreaseRemainingShrooms()
       this.determineDespawnScenario(mushroom.id)
     }
   }
@@ -41,6 +40,7 @@ class MushroomsService {
     } else {
       this.delayedDespawn(mushroom)
     }
+    this.decreaseRemainingShrooms()
   }
   instantDespawn(mushroom) {
     // splice vs filter
@@ -48,8 +48,7 @@ class MushroomsService {
     $Store.state.basicShrooms.splice(mIndex, 1)
   }
   delayedDespawn(mushroom) {
-    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
-    this.decreaseRemainingShrooms() }, 700)
+    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) }, 700)
   }
   spawnShrooms() {
     const mushroom = {}
@@ -57,14 +56,13 @@ class MushroomsService {
     if ($Store.state.basicShrooms.length >= 10){return}
     if ($Store.state.moveShrooms.length >= 10){return}
     if ($Store.state.basicShrooms.length >= $Store.state.shroomsRemaining){return}
+    if ($Store.state.moveShrooms.length >= $Store.state.shroomsRemaining){return}
     switch ($Store.state.stage) {
       case 1:
         // how can I store this information better? should it exist on the component?
         mushroom.name = "BasicShroom"
         mushroom.img = 1
-        mushroom.disabled = false
         mushroom.hitPoints = 1
-        $Store.state.basicShrooms.push(mushroom)
         break;
 
       case 2:
