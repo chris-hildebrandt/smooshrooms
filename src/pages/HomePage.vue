@@ -22,6 +22,9 @@
       <MoveShrooms :mShroom="m" class="position-absolute"/>
     </div>
   </div>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
 </template>
 
 <script>
@@ -195,7 +198,7 @@ img{
 }
 
   #click-spin{
-    transition: all .1s ease-in-out;
+    transition: all .25s ease-in-out;
   }
 
 // font-family: 'Bangers', cursive;

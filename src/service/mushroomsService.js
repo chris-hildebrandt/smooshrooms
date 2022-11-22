@@ -54,6 +54,7 @@ class MushroomsService {
     if (!findOpenLocation()) { return }
     if ($Store.state.basicShrooms.length >= 10){return}
     if ($Store.state.moveShrooms.length >= 10){return}
+    if ($Store.state.basicShrooms.length >= $Store.state.shroomsRemaining){return}
     switch ($Store.state.stage) {
       case 1:
         // how can I store this information better? should it exist on the component?
