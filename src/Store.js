@@ -19,7 +19,8 @@ const Store = createStore({
     xParent: 0,
     yParent: 0,
     hover: false,
-    hideCursor: true
+    hideCursor: true,
+    spawnInterval: ''
   },
   getters: {},
   mutations: {}

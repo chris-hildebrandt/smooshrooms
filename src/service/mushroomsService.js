@@ -30,7 +30,8 @@ class MushroomsService {
   decreaseRemainingShrooms() {
     $Store.state.shroomsRemaining--
     if ($Store.state.shroomsRemaining <= 0) {
-      playerService.increaseStage()
+      clearInterval($Store.state.spawnInterval)
+      document.getElementById('modal-button').click()
     }
   }
   determineDespawnScenario(id) {
@@ -47,7 +48,8 @@ class MushroomsService {
     $Store.state.basicShrooms.splice(mIndex, 1)
   }
   delayedDespawn(mushroom) {
-    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) }, 700)
+    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id)
+    this.decreaseRemainingShrooms() }, 700)
   }
   spawnShrooms() {
     const mushroom = {}

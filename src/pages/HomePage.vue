@@ -7,7 +7,7 @@
     </div>
     <div class="score text-light text-shadow m-0" title="player score">Score: {{score}}
     </div>
-    <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame()">START GAME</button>
+    <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
         <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">
@@ -22,14 +22,16 @@
       <MoveShrooms :mShroom="m" class="position-absolute"/>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button id="modal-button" type="button" class="btn btn-primary d-none position-absolute" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
 </button>
+<StageSummaryModal />
 </template>
 
 <script>
 import { mushroomsService } from "../service/mushroomsService.js"
 import BasicShroom from "@/components/BasicShroom.vue";
+import StageSummaryModal from "@/components/StageSummaryModal.vue";
 import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
 import { playerService } from "@/service/playerService.js";
@@ -48,7 +50,7 @@ export default {
       moveShrooms: computed(()=> $Store.state.moveShrooms),
       stage: computed(() => $Store.state.stage),
       spinDeg: computed(()=> $Store.state.spinDeg),
-      spawnInterval: '',
+      spawnInterval: computed(() => $Store.state.spawnInterval),
       miss(){
         $Store.state.missCount++
       },
@@ -57,7 +59,7 @@ export default {
   mushroomsService.incrementSpin()
 },
       startGame(){
-        this.spawnInterval = setInterval(()=> {
+        $Store.state.spawnInterval = setInterval(()=> {
           setTimeout(() => {
             mushroomsService.spawnShrooms()
           }, Math.random()*3000);
@@ -67,7 +69,7 @@ export default {
       },
     };
   },
-  components: { BasicShroom, MoveShrooms }
+  components: { BasicShroom, MoveShrooms, StageSummaryModal }
 }
 </script>
 
