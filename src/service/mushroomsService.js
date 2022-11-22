@@ -35,6 +35,7 @@ class MushroomsService {
   }
   determineDespawnScenario(id) {
     const mushroom = this.getShroomById(id)
+    if(!mushroom){return}
     if (mushroom.hitPoints > 0) {
       this.instantDespawn(mushroom)
     } else {
