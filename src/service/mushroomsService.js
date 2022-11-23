@@ -102,6 +102,7 @@ class MushroomsService {
   }
   incrementSpin(){
     $Store.state.spinDeg += 360
+    // why doesn't this VVV work?
     // $Store.state.spinDeg++
     // if($Store.state.spinDeg >= 360){
     //   $Store.state.spinDeg = 0

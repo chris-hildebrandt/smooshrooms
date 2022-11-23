@@ -7,7 +7,7 @@ class PlayerService{
   }
   increaseStage(){
     $Store.state.stage++
-    $Store.state.shroomsRemaining = 25
+    $Store.state.shroomsRemaining = 5
   }
   startGame(){
     $Store.state.spawnInterval = setInterval(()=> {
