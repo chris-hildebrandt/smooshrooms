@@ -22,11 +22,13 @@ class MushroomsService {
       mushroom.disabled = true
       shroom.classList.add('d-none')
       poof.classList.remove('d-none')
-      playerService.increaseScore(1)
+      playerService.changeScore(1)
+      playerService.increaseSmooshedCount(1)
       this.determineDespawnScenario(mushroom.id)
     }
   }
-  decreaseRemainingShrooms() {
+  decreaseRemainingShrooms(id) {
+    console.log('decreasing', id)
     $Store.state.shroomsRemaining--
     if ($Store.state.shroomsRemaining <= 0) {
       clearInterval($Store.state.spawnInterval)
@@ -41,19 +43,21 @@ class MushroomsService {
     } else {
       this.delayedDespawn(mushroom)
     }
-    this.decreaseRemainingShrooms()
-    console.log('decreasing', mushroom.id)
+    this.decreaseRemainingShrooms(id)
+    
   }
   instantDespawn(mushroom) {
     // splice vs filter
     const mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
     $Store.state.basicShrooms.splice(mIndex, 1)
+    playerService.miss()
+    playerService.changeScore(-1)
     console.log('instant de-spawn', mushroom.id)
   }
   delayedDespawn(mushroom) {
     setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) 
       console.log('delayed de-spawn', mushroom.id)
-    }, 700)
+    }, 600)
   }
   spawnShrooms() {
     const mushroom = {}
@@ -100,11 +104,11 @@ class MushroomsService {
     }
     if (mushroom?.type == 'mobile') {
       $Store.state.moveShrooms.push(new Mushroom(mushroom))
-      console.log('spawning', mushroom.id)
+      // console.log('spawning', mushroom.id)
       return
     }
     $Store.state.basicShrooms.push(new Mushroom(mushroom))
-    console.log('spawning', mushroom.id)
+    // console.log('spawning', mushroom.id)
   }
   incrementSpin(){
     $Store.state.spinDeg += 360

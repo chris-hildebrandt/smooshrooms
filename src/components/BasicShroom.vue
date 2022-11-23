@@ -14,13 +14,14 @@
 
 <script>
 // import { computed } from "@vue/reactivity";
+import { Mushroom } from "@/models/Mushroom.js";
 import { onMounted } from "vue";
 import { useToast } from "vue-toastification"
 import {mushroomsService} from "../service/mushroomsService.js"
 
 export default {
   // the props contain the information given to each instance of this component
-  props: {bShroom: { type: Object, required: true }},
+  props: {bShroom: { type: Mushroom, required: true }},
   // props are passed down to the setup for use inside my functions
 setup(props){
   // const state = reactive({
@@ -32,7 +33,7 @@ setup(props){
     setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
           mushroomsService.determineDespawnScenario(props.bShroom.id)
-        }, 1500)
+        }, 5000)
         // this used to be a random value but a set time is probably best for lvl 1
     })
 return{

@@ -4,8 +4,10 @@ const Store = createStore({
   state: {
     spinDeg: 0,
     shroomsRemaining: 1,
-    score: 0,
+    totalScore: 0,
+    stageScore: 0,
     missCount: 0,
+    smooshedCount: 0,
     stage: 0,
     smooshPower: 1,
     // increase padding on images to create larger "splash area" for weapon

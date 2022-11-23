@@ -5,7 +5,7 @@
     </div>
     <div class="miss-count text-light text-shadow m-0" title="misses">Missed: {{missCount}}
     </div>
-    <div class="score text-light text-shadow m-0" title="player score">Score: {{score}}
+    <div class="score text-light text-shadow m-0" title="player score">Score: {{totalScore}}
     </div>
     <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
@@ -52,7 +52,8 @@ export default {
       spinDeg: computed(()=> $Store.state.spinDeg),
       spawnInterval: computed(() => $Store.state.spawnInterval),
       miss(){
-        $Store.state.missCount++
+        playerService.miss()
+        playerService.changeScore(-1)
       },
       spin(){
   document.getElementById('click-spin').style = 'transform: rotate(' + this.spinDeg + 'deg)'

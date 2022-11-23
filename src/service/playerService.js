@@ -2,12 +2,19 @@
 import $Store from '../Store.js'
 import { mushroomsService } from "./mushroomsService.js"
 class PlayerService{
-  increaseScore(num){
-    $Store.state.score += num
+  changeScore(num){
+    $Store.state.stageScore += num
+  }
+  miss(){
+    $Store.state.missCount++
+  }
+  increaseSmooshedCount(num){
+    $Store.state.smooshedCount += num
   }
   increaseStage(){
     $Store.state.stage++
     $Store.state.shroomsRemaining = 5
+    $Store.state.totalScore += $Store.state.stageScore
   }
   startGame(){
     $Store.state.spawnInterval = setInterval(()=> {

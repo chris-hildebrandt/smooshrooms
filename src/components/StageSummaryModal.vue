@@ -4,14 +4,23 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">STAGE COMPLETE!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <span class="stage-score"></span>
+        <h2>
+          Smooshed: <span class="stage-smooshed"></span>
+        </h2>
+        <h2>
+          Misses: <span class="stage-miss"></span>
+        </h2>
+        <h2>
+          Score: <span class="stage-score"></span>
+        </h2>
+        <h2>
+          Total: <span class="total-score"></span>
+        </h2>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" @click="startGame()">Next Stage!</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="startGame()">Next Stage!</button>
       </div>
     </div>
   </div>
@@ -26,7 +35,10 @@ import $Store from '../Store.js'
 export default {
 setup(){
 return{
-  stageScore: computed(()=> $Store.state.score),
+  stageSmooshed: computed(()=> $Store.state.smooshedCount),
+  stageMiss: computed(()=> $Store.state.missCount),
+  stageScore: computed(()=> $Store.state.stageScore),
+  totalScore: computed(()=> $Store.state.totalScore),
   cssVars(){
     return{
       '--stage-score': this.stageScore,
@@ -42,32 +54,75 @@ return{
 
 <style lang="scss" scoped>
 
-@property --num {
+@property --smooshed {
   syntax: '<integer>';
   initial-value: 0;
   inherits: false;
 }
-
+@property --missed {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+@property --score {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+@property --total {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+.stage-smooshed {
+  animation: counter 2s ease-in-out;
+  counter-set: smooshed var(--smooshed);
+  --smooshed: v-bind(stageSmooshed);
+  font: 800 40px system-ui;
+}
+.stage-smooshed::after {
+  content: counter(smooshed);
+}
 .stage-score {
-  // transition: --num 2s;
-  animation: counter 1s ease-in-out;
-  counter-set: num var(--num);
+  animation: counter 2s ease-in-out;
+  counter-set: score var(--score);
   --num: v-bind(stageScore);
-  // counter-set: num var(--num);
   font: 800 40px system-ui;
 }
 .stage-score::after {
-  content: counter(num);
+  content: counter(score);
+}
+.stage-miss {
+  animation: counter 2s ease-in-out;
+  counter-set: miss var(--missed);
+  --missed: v-bind(stageMiss);
+  font: 800 40px system-ui;
+}
+.stage-miss::after {
+  content: counter(miss);
+}
+
+.total-score {
+  animation: counter 3s ease-in-out;
+  counter-set: total var(--total);
+  --total: v-bind(totalScore);
+  font: 800 40px system-ui;
+}
+.total-score::after {
+  content: counter(total);
 }
 @keyframes counter {
   from {
-    --num:0;
+    --smooshed:0;
+    --missed:0;
+    --score:0;
+    --total:0;
   }
   to {
-    --num: v-bind(stageScore);
+    --smooshed: v-bind(stageSmooshed);
+    --score: v-bind(stageScore);
+    --missed: v-bind(stageMiss);
+    --total: v-bind(totalScore);
   }
 }
-// .stage-score:hover {
-//   --num: 100;
-// }
 </style>
