@@ -5,7 +5,9 @@
     </div>
     <div class="miss-count text-light text-shadow m-0" title="misses">Missed: {{missCount}}
     </div>
-    <div class="score text-light text-shadow m-0" title="player score">Score: {{totalScore}}
+    <div class="score text-light text-shadow m-0" title="player score">Score: {{stageScore}}
+    </div>
+    <div class="total-score text-light text-shadow m-0" title="player score">Total Score: {{totalScore}}
     </div>
     <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame">START GAME</button>
     <div v-if="stage == 0" class="ramblin">
@@ -44,7 +46,8 @@ export default {
     })
     return {
       shroomsRemaining: computed(()=> $Store.state.shroomsRemaining),
-      score: computed(()=> $Store.state.score),
+      stageScore: computed(()=> $Store.state.stageScore),
+      totalScore: computed(()=> $Store.state.totalScore),
       missCount: computed(()=> $Store.state.missCount),
       basicShrooms: computed(() => $Store.state.basicShrooms),
       moveShrooms: computed(()=> $Store.state.moveShrooms),
@@ -166,6 +169,15 @@ h1{
   position: absolute;
   top: 10px;
   right: 50px;
+  font-family: 'Irish Grover', cursive;
+  font-size: xx-large;
+}
+.total-score{
+  font-weight: 700;
+  user-select: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   font-family: 'Irish Grover', cursive;
   font-size: xx-large;
 }

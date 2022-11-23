@@ -38,12 +38,8 @@ return{
   stageSmooshed: computed(()=> $Store.state.smooshedCount),
   stageMiss: computed(()=> $Store.state.missCount),
   stageScore: computed(()=> $Store.state.stageScore),
-  totalScore: computed(()=> $Store.state.totalScore),
-  cssVars(){
-    return{
-      '--stage-score': this.stageScore,
-    }
-  },
+  totalScore: computed(()=> $Store.state.totalScore + $Store.state.stageScore),
+
   startGame(){
         playerService.startGame()
       },
