@@ -12,9 +12,11 @@ class PlayerService{
     $Store.state.smooshedCount += num
   }
   increaseStage(){
-    $Store.state.stage++
-    $Store.state.shroomsRemaining = 5
     $Store.state.totalScore += $Store.state.stageScore
+    $Store.state.stage++
+    $Store.state.shroomsRemaining = 25
+    $Store.state.missCount = 0
+    $Store.state.stageScore = 0
   }
   startGame(){
     $Store.state.spawnInterval = setInterval(()=> {

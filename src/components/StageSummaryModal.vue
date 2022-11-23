@@ -82,7 +82,7 @@ return{
 .stage-score {
   animation: counter 2s ease-in-out;
   counter-set: score var(--score);
-  --num: v-bind(stageScore);
+  --score: v-bind(stageScore);
   font: 800 40px system-ui;
 }
 .stage-score::after {

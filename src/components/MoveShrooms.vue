@@ -23,7 +23,7 @@ setup(props){
   const toast = useToast()
   // each instance of the component loads with a despawn timer
   onMounted(()=> {
-    setInterval(()=> {randomMarquee(props.mShroom.id)}, 100)
+    setInterval(()=> {randomMarquee(props.mShroom.id)}, 10)
     setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
           mushroomsService.determineDespawnScenario(props.mShroom.id)
