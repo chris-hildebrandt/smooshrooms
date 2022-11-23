@@ -42,14 +42,18 @@ class MushroomsService {
       this.delayedDespawn(mushroom)
     }
     this.decreaseRemainingShrooms()
+    console.log('decreasing', mushroom.id)
   }
   instantDespawn(mushroom) {
     // splice vs filter
     const mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
     $Store.state.basicShrooms.splice(mIndex, 1)
+    console.log('instant de-spawn', mushroom.id)
   }
   delayedDespawn(mushroom) {
-    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) }, 700)
+    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) 
+      console.log('delayed de-spawn', mushroom.id)
+    }, 700)
   }
   spawnShrooms() {
     const mushroom = {}
@@ -96,9 +100,11 @@ class MushroomsService {
     }
     if (mushroom?.type == 'mobile') {
       $Store.state.moveShrooms.push(new Mushroom(mushroom))
+      console.log('spawning', mushroom.id)
       return
     }
     $Store.state.basicShrooms.push(new Mushroom(mushroom))
+    console.log('spawning', mushroom.id)
   }
   incrementSpin(){
     $Store.state.spinDeg += 360
