@@ -13,8 +13,8 @@ export class Mushroom {
     this.despawnDelay = data.despawnDelay
     this.type = data.type || 'stationary'
     this.direction = {
-      x: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientWidth, max: document.getElementById('stage').clientWidth },
-      y: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientHeight, max: document.getElementById('stage').clientHeight }
+      x: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientWidth, max: document.getElementById('stage').clientWidth -150 },
+      y: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientHeight, max: document.getElementById('stage').clientHeight -100}
     }
   }
 }

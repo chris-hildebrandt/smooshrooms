@@ -6,8 +6,8 @@ class MushroomsService {
 
   getShroomById(id) {
     let mushroom = $Store.state.basicShrooms.find((m) => m.id == id)
-    if(!mushroom) {
-        mushroom = $Store.state.moveShrooms.find((m) => m.id == id)
+    if (!mushroom) {
+      mushroom = $Store.state.moveShrooms.find((m) => m.id == id)
     }
     if (!mushroom) {
       console.log("no mushroom found by that id");
@@ -37,21 +37,21 @@ class MushroomsService {
   }
   determineDespawnScenario(id) {
     const mushroom = this.getShroomById(id)
-    if(!mushroom){return}
+    if (!mushroom) { return }
     if (mushroom.hitPoints > 0) {
       this.instantDespawn(mushroom)
     } else {
       this.delayedDespawn(mushroom)
     }
     this.decreaseRemainingShrooms(id)
-    
+
   }
   instantDespawn(mushroom) {
-    // splice vs filter
-    const mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
-    if(!mIndex){
-      let i = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
-      $Store.state.moveShrooms.splice(i, 1)
+    let mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
+    if (!mIndex) {
+      mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
+      console.log("it got away and it's a moveshroom")
+      $Store.state.moveShrooms.splice(mIndex, 1)
     } else {
       $Store.state.basicShrooms.splice(mIndex, 1)
     }
@@ -59,19 +59,29 @@ class MushroomsService {
     playerService.changeScore(-1)
     console.log('instant de-spawn', mushroom.id)
   }
+
   delayedDespawn(mushroom) {
-    setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) 
-      $Store.state.moveShrooms.filter(m => m.id != mushroom.id)
-      console.log('delayed de-spawn', mushroom.id)
-    }, 600)
+    let mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
+    if (!mIndex) {
+      let mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
+      setTimeout(() => {
+        $Store.state.moveShrooms.splice(mIndex, 1)
+        console.log('delayed de-spawn', mushroom.id)
+      }, 400)
+    } else {
+      setTimeout(() => {
+        $Store.state.basicShrooms.splice(mIndex, 1)
+        console.log('delayed de-spawn', mushroom.id)
+      }, 400)
+    }
   }
   spawnShrooms() {
     const mushroom = {}
     if (!findOpenLocation()) { return }
-    if ($Store.state.basicShrooms.length >= 10){return}
-    if ($Store.state.moveShrooms.length >= 10){return}
-    if ($Store.state.basicShrooms.length >= $Store.state.shroomsRemaining){return}
-    if ($Store.state.moveShrooms.length >= $Store.state.shroomsRemaining){return}
+    if ($Store.state.basicShrooms.length >= 10) { return }
+    if ($Store.state.moveShrooms.length >= 10) { return }
+    if ($Store.state.basicShrooms.length >= $Store.state.shroomsRemaining) { return }
+    if ($Store.state.moveShrooms.length >= $Store.state.shroomsRemaining) { return }
     switch ($Store.state.stage) {
       case 1:
         // how can I store this information better? should it exist on the component?
@@ -98,7 +108,7 @@ class MushroomsService {
         mushroom.hitPoints = 1
         mushroom.location = 11
         mushroom.height = Math.random() * (window.innerHeight - 100)
-        mushroom.width = Math.random() * (window.innerWidth - 100)
+        mushroom.width = Math.random() * (window.innerWidth - 150)
         mushroom.direction = Math.floor(Math.random() * 4)
         mushroom.type = 'mobile'
         break;
@@ -116,7 +126,7 @@ class MushroomsService {
     $Store.state.basicShrooms.push(new Mushroom(mushroom))
     // console.log('spawning', mushroom.id)
   }
-  incrementSpin(){
+  incrementSpin() {
     $Store.state.spinDeg += 360
     // why doesn't this VVV work?
     // $Store.state.spinDeg++
