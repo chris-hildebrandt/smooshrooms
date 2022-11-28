@@ -9,7 +9,7 @@
     </div>
     <div class="total-score text-light text-shadow m-0" title="player score">Total Score: {{totalScore}}
     </div>
-    <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame">START GAME</button>
+    <button v-if="stage <= 0" class="btn btn-info " @click.stop="startGame">START</button>
     <div v-if="stage == 0" class="ramblin">
       <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'right' : 'left'" scrollamount="6">
         <marquee behavior="alternate" :direction="Math.random()*10 > 5 ? 'up' : 'down'" scrollamount="6">

@@ -19,6 +19,7 @@ class PlayerService{
     $Store.state.stageScore = 0
   }
   startGame(){
+    $Store.state.missCount = 0
     $Store.state.spawnInterval = setInterval(()=> {
       setTimeout(() => {
         mushroomsService.spawnShrooms()
