@@ -27,7 +27,7 @@ setup(props){
     setTimeout(()=> {
       // we pass the id from the props to the service in order to filter (despawn) the correct shroom
           mushroomsService.determineDespawnScenario(props.mShroom.id)
-        }, 7000)
+        }, 5000)
     })
 return{
   toast,
