@@ -1,6 +1,6 @@
 <template>
-      <div draggable="false" class="small-box shroom" :id="mShroom.id" :class="'position' + mShroom.location + ' ' + (mShroom.disabled ? 'disabled' : '')" @click="hitShroom(mShroom.id)" >
-          <img v-if="mShroom.img == 3" :id="'shroom'+mShroom.id" :style="'left: '+mShroom.direction.x.coordinates+'px; top: '+mShroom.direction.y.coordinates+'px;'" class="small-box btn m-0" draggable="false" :title="mShroom.name" src="../assets/sprites/Monster_fungus_big_stand_full.webp" alt="Basic-Shroom">
+      <div draggable="false" class="small-box shroom" :id="mShroom.id" :class="'position' + mShroom.location + ' ' + (mShroom.disabled ? 'disabled' : '')" @click="hitShroom(mShroom.id)" :style="'left: '+mShroom.direction.x.coordinates+'px; top: '+mShroom.direction.y.coordinates+'px;'">
+          <img v-if="mShroom.img == 3" :id="'shroom'+mShroom.id" class="small-box btn m-0" draggable="false" :title="mShroom.name" src="../assets/sprites/Monster_fungus_big_stand_full.webp" alt="Basic-Shroom">
           <img :id="'poof'+mShroom.id" class="small-box m-0 d-none" draggable="false" src="../assets/the-one-who-got-away_86.gif" alt="poof">
       </div>
 </template>

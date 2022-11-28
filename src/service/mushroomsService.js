@@ -49,13 +49,19 @@ class MushroomsService {
   instantDespawn(mushroom) {
     // splice vs filter
     const mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
-    $Store.state.basicShrooms.splice(mIndex, 1)
+    if(!mIndex){
+      let i = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
+      $Store.state.moveShrooms.splice(i, 1)
+    } else {
+      $Store.state.basicShrooms.splice(mIndex, 1)
+    }
     playerService.miss()
     playerService.changeScore(-1)
     console.log('instant de-spawn', mushroom.id)
   }
   delayedDespawn(mushroom) {
     setTimeout(() => { $Store.state.basicShrooms = $Store.state.basicShrooms.filter(m => m.id != mushroom.id) 
+      $Store.state.moveShrooms.filter(m => m.id != mushroom.id)
       console.log('delayed de-spawn', mushroom.id)
     }, 600)
   }
