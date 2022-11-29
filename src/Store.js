@@ -13,9 +13,9 @@ const Store = createStore({
     // increase padding on images to create larger "splash area" for weapon
     smooshArea: 1,
     basicShrooms: [],
-    moveShrooms: [],
-    splinterShrooms: 0,
-    buffShrooms: 0,
+    // moveShrooms: [],
+    // splinterShrooms: 0,
+    // buffShrooms: 0,
     xChild: 0,
     yChild: 0,
     xParent: 0,

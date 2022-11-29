@@ -6,9 +6,9 @@ class MushroomsService {
 
   getShroomById(id) {
     let mushroom = $Store.state.basicShrooms.find((m) => m.id == id)
-    if (!mushroom) {
-      mushroom = $Store.state.moveShrooms.find((m) => m.id == id)
-    }
+    // if (!mushroom) {
+    //   mushroom = $Store.state.moveShrooms.find((m) => m.id == id)
+    // }
     if (!mushroom) {
       console.log("no mushroom found by that id");
     } return mushroom
@@ -37,6 +37,7 @@ class MushroomsService {
   }
   determineDespawnScenario(id) {
     const mushroom = this.getShroomById(id)
+    console.log('getting shroom', id, mushroom)
     if (!mushroom) { return }
     if (mushroom.hitPoints > 0) {
       this.instantDespawn(mushroom)
@@ -48,13 +49,13 @@ class MushroomsService {
   }
   instantDespawn(mushroom) {
     let mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
-    if (!mIndex) {
-      mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
-      console.log("it got away and it's a moveshroom")
-      $Store.state.moveShrooms.splice(mIndex, 1)
-    } else {
+    // if (!mIndex) {
+    //   mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
+    //   console.log("it got away and it's a moveshroom")
+    //   $Store.state.moveShrooms.splice(mIndex, 1)
+    // } else {
       $Store.state.basicShrooms.splice(mIndex, 1)
-    }
+    // }
     playerService.miss()
     playerService.changeScore(-1)
     console.log('instant de-spawn', mushroom.id)
@@ -62,26 +63,26 @@ class MushroomsService {
 
   delayedDespawn(mushroom) {
     let mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
-    if (!mIndex) {
-      let mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
-      setTimeout(() => {
-        $Store.state.moveShrooms.splice(mIndex, 1)
-        console.log('delayed de-spawn', mushroom.id)
-      }, 400)
-    } else {
+    // if (!mIndex) {
+      // let mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
+      // setTimeout(() => {
+        // $Store.state.moveShrooms.splice(mIndex, 1)
+        // console.log('delayed de-spawn', mushroom.id)
+      // }, 400)
+    // } else {
       setTimeout(() => {
         $Store.state.basicShrooms.splice(mIndex, 1)
         console.log('delayed de-spawn', mushroom.id)
       }, 400)
-    }
+    // }
   }
   spawnShrooms() {
     const mushroom = {}
     if (!findOpenLocation()) { return }
     if ($Store.state.basicShrooms.length >= 10) { return }
-    if ($Store.state.moveShrooms.length >= 10) { return }
+    // if ($Store.state.moveShrooms.length >= 10) { return }
     if ($Store.state.basicShrooms.length >= $Store.state.shroomsRemaining) { return }
-    if ($Store.state.moveShrooms.length >= $Store.state.shroomsRemaining) { return }
+    // if ($Store.state.moveShrooms.length >= $Store.state.shroomsRemaining) { return }
     switch ($Store.state.stage) {
       case 1:
         // how can I store this information better? should it exist on the component?
@@ -111,6 +112,7 @@ class MushroomsService {
         mushroom.width = Math.random() * (window.innerWidth - 150)
         mushroom.direction = Math.floor(Math.random() * 4)
         mushroom.type = 'mobile'
+        mushroom.despawnDelay = 700000
         break;
       // stages: [['basic'], [75:'basic', 100:'tuff']]
       // mushroomTypes: [{name: 'basicMushroom', }]
@@ -118,11 +120,11 @@ class MushroomsService {
       // store.stage[cu]
       // sttore.stages[currentStage][rand1]
     }
-    if (mushroom?.type == 'mobile') {
-      $Store.state.moveShrooms.push(new Mushroom(mushroom))
+    // if (mushroom?.type == 'mobile') {
+      // $Store.state.moveShrooms.push(new Mushroom(mushroom))
       // console.log('spawning', mushroom.id)
-      return
-    }
+      // return
+    // }
     $Store.state.basicShrooms.push(new Mushroom(mushroom))
     // console.log('spawning', mushroom.id)
   }

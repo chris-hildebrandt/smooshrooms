@@ -18,11 +18,11 @@
       </marquee>
     </div>
     <div v-for="b in basicShrooms" :key="b.id">
-      <BasicShroom :bShroom="b" />
+      <BasicShroom :bShroom="b" class="shroom"/>
     </div>
-    <div v-for="m in moveShrooms" :key="m.id">
+    <!-- <div v-for="m in moveShrooms" :key="m.id">
       <MoveShrooms :mShroom="m" class="position-absolute"/>
-    </div>
+    </div> -->
   </div>
   <button id="modal-button" type="button" class="btn btn-primary d-none position-absolute" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
@@ -38,7 +38,7 @@ import { computed } from "@vue/reactivity";
 import $Store from '../Store.js'
 import { playerService } from "@/service/playerService.js";
 import { onMounted } from "vue";
-import MoveShrooms from "@/components/MoveShrooms.vue";
+// import MoveShrooms from "@/components/MoveShrooms.vue";
 
 export default {
   setup() {
@@ -50,7 +50,7 @@ export default {
       totalScore: computed(()=> $Store.state.totalScore),
       missCount: computed(()=> $Store.state.missCount),
       basicShrooms: computed(() => $Store.state.basicShrooms),
-      moveShrooms: computed(()=> $Store.state.moveShrooms),
+      // moveShrooms: computed(()=> $Store.state.moveShrooms),
       stage: computed(() => $Store.state.stage),
       spinDeg: computed(()=> $Store.state.spinDeg),
       spawnInterval: computed(() => $Store.state.spawnInterval),
@@ -67,7 +67,7 @@ export default {
       },
     };
   },
-  components: { BasicShroom, MoveShrooms, StageSummaryModal }
+  components: { BasicShroom, StageSummaryModal }
 }
 </script>
 

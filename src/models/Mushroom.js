@@ -10,7 +10,7 @@ export class Mushroom {
     this.img = data.img
     this.poofImg = data.poofImg
     this.disabled = data.disabled || false
-    this.despawnDelay = data.despawnDelay
+    this.despawnDelay = data.despawnDelay || 3000
     this.type = data.type || 'stationary'
     this.direction = {
       x: { speed: Math.ceil(Math.random() * 4), positive: Math.random() > .5, coordinates: Math.random() * document.getElementById('stage').clientWidth, max: document.getElementById('stage').clientWidth -150 },

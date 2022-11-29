@@ -25,8 +25,8 @@ class PlayerService{
         mushroomsService.spawnShrooms()
       }, Math.random()*3000);
     }, 1000)
-    // $Store.state.stage = 3
-    this.increaseStage()
+    $Store.state.stage = 3
+    // this.increaseStage()
   }
 }
 export const playerService = new PlayerService()
