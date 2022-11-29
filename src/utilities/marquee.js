@@ -1,6 +1,6 @@
 import $Store from '../Store.js'
 export function randomMarquee(id) {
-  let mushroom = $Store.state.basicShrooms.find(m => m.id == id)
+  let mushroom = $Store.state.shrooms.find(m => m.id == id)
   if(!mushroom){return}
   for (let dir in mushroom.direction){
     if (mushroom.direction[dir].positive) {

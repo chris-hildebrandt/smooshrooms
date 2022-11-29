@@ -5,7 +5,7 @@ import { Mushroom } from "@/models/Mushroom.js";
 class MushroomsService {
 
   getShroomById(id) {
-    let mushroom = $Store.state.basicShrooms.find((m) => m.id == id)
+    let mushroom = $Store.state.shrooms.find((m) => m.id == id)
     // if (!mushroom) {
     //   mushroom = $Store.state.moveShrooms.find((m) => m.id == id)
     // }
@@ -48,13 +48,13 @@ class MushroomsService {
 
   }
   instantDespawn(mushroom) {
-    let mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
+    let mIndex = $Store.state.shrooms.findIndex(m => m.id == mushroom.id)
     // if (!mIndex) {
     //   mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
     //   console.log("it got away and it's a moveshroom")
     //   $Store.state.moveShrooms.splice(mIndex, 1)
     // } else {
-      $Store.state.basicShrooms.splice(mIndex, 1)
+      $Store.state.shrooms.splice(mIndex, 1)
     // }
     playerService.miss()
     playerService.changeScore(-1)
@@ -62,7 +62,7 @@ class MushroomsService {
   }
 
   delayedDespawn(mushroom) {
-    let mIndex = $Store.state.basicShrooms.findIndex(m => m.id == mushroom.id)
+    let mIndex = $Store.state.shrooms.findIndex(m => m.id == mushroom.id)
     // if (!mIndex) {
       // let mIndex = $Store.state.moveShrooms.findIndex(m => m.id == mushroom.id)
       // setTimeout(() => {
@@ -71,7 +71,7 @@ class MushroomsService {
       // }, 400)
     // } else {
       setTimeout(() => {
-        $Store.state.basicShrooms.splice(mIndex, 1)
+        $Store.state.shrooms.splice(mIndex, 1)
         console.log('delayed de-spawn', mushroom.id)
       }, 400)
     // }
@@ -79,9 +79,9 @@ class MushroomsService {
   spawnShrooms() {
     const mushroom = {}
     if (!findOpenLocation()) { return }
-    if ($Store.state.basicShrooms.length >= 10) { return }
+    if ($Store.state.shrooms.length >= 10) { return }
     // if ($Store.state.moveShrooms.length >= 10) { return }
-    if ($Store.state.basicShrooms.length >= $Store.state.shroomsRemaining) { return }
+    if ($Store.state.shrooms.length >= $Store.state.shroomsRemaining) { return }
     // if ($Store.state.moveShrooms.length >= $Store.state.shroomsRemaining) { return }
     switch ($Store.state.stage) {
       case 1:
@@ -125,7 +125,7 @@ class MushroomsService {
       // console.log('spawning', mushroom.id)
       // return
     // }
-    $Store.state.basicShrooms.push(new Mushroom(mushroom))
+    $Store.state.shrooms.push(new Mushroom(mushroom))
     // console.log('spawning', mushroom.id)
   }
   incrementSpin() {

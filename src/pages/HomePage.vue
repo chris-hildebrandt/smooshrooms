@@ -17,8 +17,8 @@
         </marquee>
       </marquee>
     </div>
-    <div v-for="b in basicShrooms" :key="b.id">
-      <BasicShroom :bShroom="b" class="shroom"/>
+    <div v-for="b in shrooms" :key="b.id">
+      <BasicShroom :shroom="b" class="shroom"/>
     </div>
     <!-- <div v-for="m in moveShrooms" :key="m.id">
       <MoveShrooms :mShroom="m" class="position-absolute"/>
@@ -49,7 +49,7 @@ export default {
       stageScore: computed(()=> $Store.state.stageScore),
       totalScore: computed(()=> $Store.state.totalScore),
       missCount: computed(()=> $Store.state.missCount),
-      basicShrooms: computed(() => $Store.state.basicShrooms),
+      shrooms: computed(() => $Store.state.shrooms),
       // moveShrooms: computed(()=> $Store.state.moveShrooms),
       stage: computed(() => $Store.state.stage),
       spinDeg: computed(()=> $Store.state.spinDeg),
