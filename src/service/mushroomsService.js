@@ -112,7 +112,7 @@ class MushroomsService {
         mushroom.width = Math.random() * (window.innerWidth - 150)
         mushroom.direction = Math.floor(Math.random() * 4)
         mushroom.type = 'mobile'
-        mushroom.despawnDelay = 700000
+        mushroom.despawnDelay = 10000
         break;
       // stages: [['basic'], [75:'basic', 100:'tuff']]
       // mushroomTypes: [{name: 'basicMushroom', }]
